@@ -42,7 +42,7 @@ export const MenuItems = [
     {
         title: "Order Now",
         url: "#",
-        cName: "nav-links"
+        cName: "nav-links cta"
     }
 ]
 

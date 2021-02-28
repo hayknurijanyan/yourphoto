@@ -10,17 +10,18 @@
 }
 
 .NavbarItems {
-  background-color: aqua;
+  background-color: var(--main);
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
+  box-shadow: 1px 1px 9px 2px rgb(218, 216, 216);
 }
 
 .navbar-logo {
   justify-self: start;
-  margin-left: 20px;
+  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -28,28 +29,30 @@
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
+  display: none;
 }
 
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(9, auto);
-  grid-gap: 10px;
+  grid-gap: 5px;
   list-style: none;
-  width: 80%;
+  width: 85%;
   justify-content: end;
   align-items: center;
-  margin-right: 2rem;
+  margin-right: 4px;
 }
 
 .nav-links {
   color: var(--dark);
   text-decoration: none;
-  padding: 0.5rem 0.6rem;
+  margin: 0 10px;
+  padding: 3px 0;
 }
 
-.nav-links:hover {
-  background-color: aquamarine;
-  border-radius: 4px;
+.nav-links:not(.cta):hover {
+  /* background-color: var(--secondary); */
+  border-bottom: 1px solid var(--textDark);
   transition: all 0.2s ease-out;
 }
 
@@ -59,4 +62,11 @@
 
 .nav-links-mobile {
   display: none;
+}
+
+.cta {
+  background-color: var(--secondary);
+  color: var(--textLight);
+  padding: 10px;
+  border-radius: 6px;
 }

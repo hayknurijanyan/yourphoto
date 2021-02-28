@@ -1,0 +1,62 @@
+:root {
+  --main: whitesmoke;
+  --dark: #262935;
+  --secondary: #f73378;
+  /* --secondary: #34b0fd; */
+  --lightBackground: rgb(243, 243, 243);
+  --defaultGrey: ;
+  --textDark: #262935;
+  --textLight: whitesmoke;
+}
+
+.NavbarItems {
+  background-color: aqua;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.navbar-logo {
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  justify-self: start;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  grid-gap: 10px;
+  list-style: none;
+  width: 80%;
+  justify-content: end;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.nav-links {
+  color: var(--dark);
+  text-decoration: none;
+  padding: 0.5rem 0.6rem;
+}
+
+.nav-links:hover {
+  background-color: aquamarine;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+  color: var(--textDark);
+}
+
+.nav-links-mobile {
+  display: none;
+}

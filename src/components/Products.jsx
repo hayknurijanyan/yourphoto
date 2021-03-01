@@ -1,28 +1,116 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import "./Products.css";
+import "./@Shared.css";
+import standardImgs from "../imgs/photos/@export";
 
 class Products extends Component {
+  render() {
+    return (
+      <>
+        <section id="products">
+          <header className="products-header">
+            <h2 className="section-title">Explore features of Photo Prints</h2>
+            <ul className="products-lists">
+              <li className="products-list-item on-active">STANDARD PRINTS</li>
+              <li className="products-list-item">SPECIAL PRINTS</li>
+              <li className="products-list-item">COLLAGE</li>
+              <li className="products-list-item">CALENDAR</li>
+              <li className="products-list-item">STORE</li>
+              <li className="products-list-item">SEE ALL</li>
+            </ul>
+          </header>
+          <div className="products-container">
+            <div id="standard">
+              <div className="box1">
+                <img
+                  src={standardImgs[0]}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+            </div>
+            <div id="standard">
+              <div className="box2">
+                <img
+                  src={standardImgs[0]}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+            </div>
+            <div id="standard">
+              <div className="box1">
+                <img
+                  src={standardImgs[0]}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+            </div>
+            <div id="standard">
+              <div className="box1">
+                <img
+                  src={standardImgs[0]}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+            </div>
+            <div id="standard">
+              <div className="box1">
+                <img
+                  src={standardImgs[0]}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+            </div>
+            <div id="standard">
+              <div className="box1">
+                <img
+                  src={standardImgs[0]}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+            </div>
+            <div id="standard">
+              <div className="box1">
+                <img
+                  src={standardImgs[0]}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+            </div>
+            <div id="standard">
+              <div className="box1">
+                <img
+                  src={standardImgs[0]}
+                  alt=""
+                  width="200px"
+                  height="200px"
+                />
+              </div>
+            </div>
+          </div>
 
-    render(){
-        return(
-            <>
-            <section id="prints">
-            <header className="prints-header">
-                <h1 className="section-title">Explore features of Photo Prints
-                </h1>
-                <ul className="prints-header-items">
-                    <li className="prints-header-item1 standard product-button active">STANDARD PRINTS</li>
-                    <li className="prints-header-item2 special product-button">SPECIAL PRINTS</li>
-                    <li className="prints-header-item3 collage product-button">COLLAGE</li>
-                    <li className="prints-header-item4 calendar product-button">CALENDAR</li>
-                    <li className="prints-header-item5 store product-button">STORE</li>
-                    <li className="">SEE ALL</li>
-                </ul>
-            </header>
-         
+          {/* <div id="special"></div>
+          <div id="collage"></div>
+          <div id="calendar"></div>
+          <div id="store"></div>
+          <div id="see-all"></div> */}
         </section>
-        </>
-        )
-    }
+      </>
+    );
+  }
 }
 
-export default Products
+export default Products;

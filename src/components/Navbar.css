@@ -38,7 +38,7 @@
   height: 60px;
   justify-self: start;
   cursor: pointer;
-  margin: 0 0 0 24px;
+  margin: 0 0 0 50px;
 }
 
 .menu-icon {
@@ -85,6 +85,6 @@
 }
 
 .cta {
-  margin-right: 24px;
+  margin-right: 50px;
   width: 120px;
 }

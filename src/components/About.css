@@ -1,0 +1,34 @@
+#about {
+  background-color: var(--lightBackground);
+  padding: 50px;
+  height: 900px;
+}
+
+.about-container {
+  display: flex;
+  margin-top: 70px;
+}
+
+.about-container figcaption {
+  padding: 20px;
+}
+
+.about-container img {
+  width: 600px;
+  height: 620px;
+  display: flex;
+  padding: 20px;
+}
+
+.about-container h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+.about-container p {
+  font-size: large;
+  font-weight: 400;
+  max-height: 600px;
+  padding-right: 20px;
+  overflow: hidden;
+}

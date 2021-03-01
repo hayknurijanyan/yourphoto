@@ -1,0 +1,35 @@
+#key-features {
+  background-color: #262935;
+  padding: 50px;
+  height: 700px;
+}
+
+#key-features h1 {
+  color: whitesmoke;
+}
+
+.key-features-container {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 400px;
+}
+
+.key-feature img {
+  width: 250px;
+}
+
+.key-feature h3 {
+  color: whitesmoke;
+  text-align: center;
+  font-size: 20px;
+  padding: 16px 0;
+}
+
+.key-feature p {
+  color: whitesmoke;
+  text-align: center;
+  width: 260px;
+  font-weight: 300;
+}

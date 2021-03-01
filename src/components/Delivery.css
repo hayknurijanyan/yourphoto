@@ -1,0 +1,27 @@
+#delivery {
+  padding: 50px;
+}
+
+.delivery-container {
+  display: flex;
+  margin-top: 70px;
+}
+
+.delivery-container img {
+  padding: 30px;
+  height: 360px;
+}
+
+.delivery-container h3 {
+  margin: 10px 0 40px 0;
+  font-size: 20px;
+}
+
+.delivery-container p {
+  font-size: large;
+  font-weight: 400;
+}
+
+.delivery-container figcaption {
+  padding: 20px;
+}

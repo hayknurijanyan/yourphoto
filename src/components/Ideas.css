@@ -1,0 +1,50 @@
+#ideas {
+  padding: 50px;
+  height: 880px;
+}
+
+.ideas-articles {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 80px;
+  /* color: var(--textDark); */
+}
+
+.ideas-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ideas-article h2 {
+  font-size: 22px;
+  padding: 8px 0;
+}
+
+.ideas-article figcaption {
+  padding: 0 35px 0 35px;
+}
+
+.ideas-img1 {
+  background-image: url(./../imgs/ideas/1.jpg);
+  background-size: cover;
+  height: 330px;
+  width: 100%;
+}
+
+.ideas-img2 {
+  background-image: url(./../imgs/ideas/2.jpg);
+  background-size: cover;
+  height: 330px;
+  width: 80%;
+}
+
+.ideas-img3 {
+  background-image: url(./../imgs/ideas/3.jpg);
+  background-size: cover;
+  height: 330px;
+  width: 100%;
+}

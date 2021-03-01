@@ -1,0 +1,17 @@
+:root {
+  --main: whitesmoke;
+  --dark: #262935;
+  --secondary: #f73378;
+  /* --secondary: #34b0fd; */
+  --lightBackground: rgb(243, 243, 243);
+  --defaultGrey: ;
+  --textDark: #262935;
+  --textLight: whitesmoke;
+}
+
+$primary: #262935;
+$secondary: #262935;
+$succes: #228f46;
+$danger: #f73378;
+
+@import "~bootstrap/scss/bootstrap.scss";

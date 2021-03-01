@@ -1,6 +1,9 @@
+import { Button } from 'react-bootstrap';
 import React, { Component } from 'react';
 import { MenuItems } from './MenuItems';
 import "./Navbar.css"
+import logo from "../../imgs/logo/logo.png"
+
 
 class Navbar extends Component {
     state = {
@@ -14,12 +17,13 @@ class Navbar extends Component {
     render(){
         return(
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">YourPhoto</h1>
+                <img className="navbar-logo" src={logo} alt=""/>
+                <h1 className="navbar-logo-text">YourPhoto</h1>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i class="fa fa-bars" aria-hidden="true">
                     </i>
                 </div>
-                <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+                <ul className={this.state.clicked ? "navbar-menu active" : "navbar-menu"}>
                     {MenuItems.map( 
                         (item, index)=>{return(
                         <li key ={index}>
@@ -30,6 +34,8 @@ class Navbar extends Component {
                     } 
                     )}
                 </ul>
+                <Button className="cta" variant="outline-danger">Order Now</Button>{' '}
+                
             </nav>
         )
     }

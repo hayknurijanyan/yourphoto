@@ -39,10 +39,5 @@ export const MenuItems = [
         url: "#",
         cName: "nav-links"
     },
-    {
-        title: "Order Now",
-        url: "#",
-        cName: "nav-links cta"
-    }
 ]
 

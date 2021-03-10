@@ -6,8 +6,8 @@ import img from "./../imgs/delivery.jpg";
 const Delivery = () => {
   return (
     <section id="delivery">
-      <h1 class="section-title">Delivery Information</h1>
-      <figure class="delivery-container">
+      <h1 className="section-title">Delivery Information</h1>
+      <figure className="delivery-container">
         <img src={img} alt="Delivery Service" />
         <figcaption>
           <h3>Process</h3>

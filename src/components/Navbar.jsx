@@ -19,7 +19,7 @@ class Navbar extends Component {
         <img className="navbar-logo" src={logo} alt="" />
         <h1 className="navbar-logo-text">YourPhoto</h1>
         <div className="menu-icon" onClick={this.handleClick}>
-          <i class="fa fa-bars" aria-hidden="true"></i>
+          <i className="fa fa-bars" aria-hidden="true"></i>
         </div>
         <ul
           className={this.state.clicked ? "navbar-menu active" : "navbar-menu"}>

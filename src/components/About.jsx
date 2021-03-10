@@ -6,8 +6,8 @@ import img from "../imgs/about.jpg";
 const About = () => {
   return (
     <section id="about">
-      <h1 class="section-title">About Us</h1>
-      <figure class="about-container">
+      <h1 className="section-title">About Us</h1>
+      <figure className="about-container">
         <figcaption>
           <h3>Our Story</h3>
           <p>

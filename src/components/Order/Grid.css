@@ -1,0 +1,15 @@
+.grid-container {
+  background-color: aquamarine;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
+  grid-gap: 10px;
+  padding: 40px;
+  /* width: 100%; */
+  /* justify-content: center; */
+  /* height: fit-content; */
+}
+
+.grid-container img {
+  width: 100%;
+  height: auto;
+}

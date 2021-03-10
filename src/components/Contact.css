@@ -1,15 +1,14 @@
 #contact {
-  height: 800px;
+  height: 850px;
   padding: 50px;
 }
 
 .contact-container {
-  margin-top: 60px;
+  margin: 60px 0;
   display: flex;
   justify-content: center;
   flex-direction: row;
   padding: 20px;
-  color: var(--textDark);
 }
 
 .contact-form {
@@ -50,18 +49,16 @@
 }
 
 .contact-details h2 {
-  font-size: x-large;
+  font-size: 22px;
   margin-top: 0;
   margin-bottom: 20px;
-  color: var(--textDark);
 }
 
 .contact-details h3 {
-  font-size: x-large;
+  font-size: 22px;
   margin-top: 0;
   margin-top: 40px;
   margin-bottom: 30px;
-  color: var(--textDark);
 }
 
 .contact-detail-item {
@@ -71,14 +68,18 @@
 }
 
 .contact-detail-item i {
-  font-size: 30px;
+  font-size: 28px;
   width: 45px;
   padding-right: 20px;
 }
 
 .contact-detail-item span {
-  font-size: medium;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.mark {
+  background-color: yellow !important;
 }
 
 .contact-detail-item a {
@@ -87,5 +88,6 @@
 }
 
 .contact-detail-item a:hover {
-  border-bottom: 2px solid var(--secondary);
+  border-bottom: 2px solid #f73378;
+  text-decoration: none;
 }

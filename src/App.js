@@ -9,12 +9,14 @@ import Navbar from "./components/Navbar";
 import Products from "./components/Products";
 import Slider from "./components/Slider";
 import Footer from "./components/Footer";
+import Order from "./components/Order/Order";
 
 function App() {
   return (
     <>
       <Navbar />
       <div className="main">
+        <Order />
         <Slider />
         <Products />
         <Ideas />

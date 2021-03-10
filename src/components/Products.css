@@ -1,10 +1,11 @@
 #products {
   padding: 50px;
-  height: 760px;
+  height: 890px;
   background-color: var(--lightBackground);
 }
 
 .products-header {
+  margin: 30px 0 30px 0;
   text-align: center;
   width: 100%;
 }
@@ -17,19 +18,13 @@
 .products-list-item {
   text-decoration: none;
   list-style-type: none;
-  padding: 5px;
-  margin: 2px 14px;
+
+  margin: 2px 24px;
   font-size: 15px;
   cursor: pointer;
 }
 
 .products-container {
-  display: grid;
-  justify-content: center;
-  margin: 50px 30px;
-  grid-gap: 20px;
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: repeat(2, 200px);
-  /* height: 700px; */
-  /* background-color: green; */
+  /* background-color: aquamarine; */
+  padding: 30px;
 }

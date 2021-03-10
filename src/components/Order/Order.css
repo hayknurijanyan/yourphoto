@@ -1,0 +1,75 @@
+:root {
+  --main: whitesmoke;
+  --dark: #262935;
+  --secondary: #f73378;
+  /* --secondary: #34b0fd; */
+  --lightBackground: rgb(243, 243, 243);
+  --defaultGrey: ;
+  --textDark: #262935;
+  --textLight: whitesmoke;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-margin: 76px;
+}
+
+#main {
+  /* padding-top:32px; */
+  margin-top: 76px;
+  min-height: 900px;
+  max-height: fit-content;
+}
+
+#main header {
+  background-color: var(--dark);
+  height: 140px;
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#crop {
+  background-color: var(--secondary);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+#upload {
+  background-color: var(--lightBackground);
+  height: fit-content;
+  min-height: 700px;
+  padding: 10px;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+.upload-btn {
+  height: 50px;
+  width: 140px;
+  font-size: 30px;
+}
+
+.main-quantity {
+  color: whitesmoke;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.main-upload-btn:hover {
+  cursor: pointer;
+  color: whitesmoke;
+  background-color: var(--secondary);
+}
+
+.upload-previews {
+  width: 100%;
+  padding: 60px;
+}
+
+.upload-previews img {
+  padding: 3px;
+}

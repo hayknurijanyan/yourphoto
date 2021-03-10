@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import React, { Component } from "react";
 import "./Grid.css";
 import Image from "./Image";
@@ -8,7 +9,13 @@ class Grid extends Component {
   state = {
     uploading: false,
     images: [],
+    count: 1,
   };
+
+  handleImageClick = () => {
+    console.log("sss");
+  };
+
   handleFileInput = (e) => {
     this.fileObj.unshift(e.target.files);
     for (let i = 0; i < this.fileObj[0].length; i++) {
@@ -24,19 +31,19 @@ class Grid extends Component {
     return (
       <>
         <div className="grid-container">
-          <input
-            type="file"
-            onChange={this.handleFileInput}
-            // style={{ display: "none" }}
-            multiple
-          />
-          {this.state.images.map((imgSrc) => {
-            return <img src={imgSrc} alt="" />;
+          <input type="file" onChange={this.handleFileInput} multiple />
+          {this.state.images.map((imgSrc, i) => {
+            return (
+              <Image
+                onClick={this.handleImageClick}
+                id={i}
+                key={i}
+                src={imgSrc}
+                count={this.state.count}
+                alt="uploaded-img"
+              />
+            );
           })}
-          <Image />
-          <Image />
-          <Image />
-          <Image />
         </div>
       </>
     );

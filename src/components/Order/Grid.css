@@ -1,15 +1,11 @@
 .grid-container {
-  background-color: aquamarine;
+  background-color: rgb(168, 168, 168);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+  grid-row-gap: 14px;
+  grid-column-gap: 8px;
   padding: 40px;
   /* width: 100%; */
-  /* justify-content: center; */
-  /* height: fit-content; */
-}
-
-.grid-container img {
-  width: 100%;
-  height: auto;
+  justify-content: center;
+  height: fit-content;
 }

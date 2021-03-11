@@ -11,7 +11,6 @@ class Order extends Component {
   state = {
     uploading: false,
     images: [],
-    count: 1,
   };
 
   handleFileInput = (e) => {
@@ -20,22 +19,41 @@ class Order extends Component {
       this.fileArray.unshift(URL.createObjectURL(this.fileObj[0][i]));
     }
 
-    this.setState({ images: this.fileArray });
+    let uploads = [];
+
+    this.fileArray.map((blob) => {
+      return uploads.push({ imgSrc: blob, id: 1, count: 1, size: "10x15" });
+    });
+    this.setState({ images: uploads });
     this.fileObj = [];
   };
 
+  // handleIncrease = () => {
+  //   let n = ++this.state.count;
+  //   this.setState({ count: n });
+  // };
+
+  // handleDecrease = () => {
+  //   if (this.state.count > 1) {
+  //     let n = --this.state.count;
+  //     this.setState({ count: n });
+  //   }
+  // };
   render() {
     return (
       <main id="main">
         <header>
-          <Button className="upload-buuton" variant="danger">
+          {/* <Button className="upload-buuton" variant="danger">
             Upload Photo
-          </Button>{" "}
-          <div className="main-quantity">Quantity: {this.state.quantity}</div>
+          </Button>{" "} */}
+          <input type="file" onChange={this.handleFileInput} multiple />
+          <div className="main-quantity">
+            Quantity: {this.state.images.length}
+          </div>
         </header>
         <Cropper />
         <Preview />
-        <Grid />
+        <Grid images={this.state.images} />
       </main>
     );
   }

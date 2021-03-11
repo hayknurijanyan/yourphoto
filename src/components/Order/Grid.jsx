@@ -9,7 +9,6 @@ class Grid extends Component {
   state = {
     uploading: false,
     images: [],
-    count: 1,
   };
 
   handleImageClick = () => {

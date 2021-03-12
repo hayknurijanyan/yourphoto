@@ -26,7 +26,16 @@ class Grid extends Component {
       <>
         <div className="grid-container">
           {this.props.images.map((image) => {
-            return <Image image={image} />;
+            return (
+              <Image
+                onDelete={this.props.onDelete}
+                increaseCount={this.props.increaseCount}
+                decreaseCount={this.props.decreaseCount}
+                key={image.id}
+                id={image.id}
+                image={image}
+              />
+            );
           })}
         </div>
       </>

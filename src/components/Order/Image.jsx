@@ -2,11 +2,20 @@ import React, { Component } from "react";
 import "./Image.css";
 
 class Image extends Component {
-  // state = {
-  //   name: "some name",
-  //   id: 123,
-  //   size: "10x15",
-  //   count: 1,
+  state = {
+    count: this.props.image.count,
+  };
+
+  // handleIncrease = () => {
+  //   let n = ++this.state.count;
+  //   this.setState({ count: n });
+  // };
+
+  // handleDecrease = () => {
+  //   if (this.state.count > 1) {
+  //     let n = --this.state.count;
+  //     this.setState({ count: n });
+  //   }
   // };
 
   render() {
@@ -14,14 +23,22 @@ class Image extends Component {
       <>
         <div>
           <div className="img-container">
+            <i
+              onClick={() => this.props.onDelete(this.props.id)}
+              class="fa fa-times-circle delete-icon"
+              aria-hidden="true"></i>
             <img src={this.props.image.imgSrc} alt="" />
           </div>
           <div className="img-details">
-            <span className="img-count-decrease">
+            <span
+              onClick={this.props.decreaseCount}
+              className="img-count-decrease">
               <i class="fa fa-minus" aria-hidden="true"></i>
             </span>
-            <span className="img-count">{this.props.image.count}</span>
-            <span className="img-count-increase">
+            <span className="img-count">{this.state.count}</span>
+            <span
+              onClick={this.props.increaseCount}
+              className="img-count-increase">
               <i className="fa fa-plus" aria-hidden="true"></i>
             </span>
           </div>

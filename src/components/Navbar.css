@@ -12,7 +12,7 @@
 .NavbarItems {
   position: fixed;
   z-index: 10;
-  top: 0;
+  top: 0px;
   left: 0;
   opacity: 92%;
   width: 100%;
@@ -76,8 +76,9 @@
   color: var(--dark);
 }
 
-.fa-bars {
+.bars {
   color: var(--textDark);
+  display: none !important;
 }
 
 .nav-links-mobile {
@@ -86,5 +87,20 @@
 
 .cta {
   margin-right: 50px;
-  width: 120px;
+  min-width: 105px;
 }
+
+@media only screen and (max-width: 1200px) {
+  .nav-links {
+    display: none;
+  }
+  .cta {
+    display: none !important;
+  }
+
+  .bars {
+    display: block !important;
+    margin-right: 50px;
+    font-size: 26px !important;
+  }
+} ;

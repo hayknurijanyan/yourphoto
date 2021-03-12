@@ -4,23 +4,6 @@ import "./Grid.css";
 import Image from "./Image";
 
 class Grid extends Component {
-  // fileObj = [];
-  // fileArray = [];
-  // state = {
-  //   uploading: false,
-  //   images: [],
-  // };
-
-  // handleFileInput = (e) => {
-  //   this.fileObj.unshift(e.target.files);
-  //   for (let i = 0; i < this.fileObj[0].length; i++) {
-  //     this.fileArray.unshift(URL.createObjectURL(this.fileObj[0][i]));
-  //   }
-
-  //   this.setState({ images: this.fileArray });
-  //   this.fileObj = [];
-  // };
-
   render() {
     return (
       <>
@@ -29,8 +12,8 @@ class Grid extends Component {
             return (
               <Image
                 onDelete={this.props.onDelete}
-                increaseCount={this.props.increaseCount}
-                decreaseCount={this.props.decreaseCount}
+                increaseCount={() => this.props.increaseCount(image)}
+                decreaseCount={() => this.props.decreaseCount(image)}
                 key={image.id}
                 id={image.id}
                 image={image}

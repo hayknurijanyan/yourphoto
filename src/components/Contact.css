@@ -3,6 +3,11 @@
   padding: 50px;
 }
 
+iframe {
+  width: 600px;
+  height: 450px;
+}
+
 .contact-container {
   margin: 60px 0;
   display: flex;
@@ -90,4 +95,103 @@
 .contact-detail-item a:hover {
   border-bottom: 2px solid #f73378;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  #contact {
+    height: fit-content;
+    padding: 5px;
+  }
+
+  iframe {
+    display: none;
+  }
+
+  .contact-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 3px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-right: 0px;
+  }
+
+  .contact-form input {
+    background-color: rgb(248, 248, 248);
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 3px;
+    outline: none;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+
+  .contact-form textarea {
+    background-color: rgb(248, 248, 248);
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 5px;
+  }
+
+  .contact-map {
+    /* background-color: violet; */
+    /* width: 50%; */
+    margin-left: 0px;
+    margin-right: 0px;
+    box-shadow: 1px 1px 7px 1px var(--lightBackground);
+  }
+
+  .contact-details {
+    width: 350px;
+  }
+
+  .contact-details h2 {
+    font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .contact-details h3 {
+    font-size: 12px;
+    margin-top: 0;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .contact-detail-item i {
+    font-size: 18px;
+    width: 5px;
+    padding-right: 0px;
+  }
+
+  .contact-detail-item span {
+    font-size: 8px;
+    font-weight: 500;
+  }
+
+  .mark {
+    background-color: yellow !important;
+  }
+
+  .contact-detail-item a {
+    text-decoration: none;
+    color: rgb(73, 74, 77);
+  }
+
+  .contact-detail-item a:hover {
+    border-bottom: 2px solid #f73378;
+    text-decoration: none;
+  }
 }

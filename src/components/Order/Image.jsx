@@ -35,7 +35,7 @@ class Image extends Component {
               className="img-count-decrease">
               <i class="fa fa-minus" aria-hidden="true"></i>
             </span>
-            <span className="img-count">{this.state.count}</span>
+            <span className="img-count">{this.props.image.count}</span>
             <span
               onClick={this.props.increaseCount}
               className="img-count-increase">

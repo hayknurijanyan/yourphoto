@@ -36,6 +36,7 @@ class Navbar extends Component {
         <Button className="cta" variant="outline-danger">
           Order Now
         </Button>{" "}
+        <i class="fa fa-bars bars" aria-hidden="true"></i>
       </nav>
     );
   }

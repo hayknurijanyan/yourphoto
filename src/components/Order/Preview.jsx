@@ -5,7 +5,7 @@ class Preview extends Component {
   render() {
     return (
       <>
-        <div className="cropper"></div>
+        <div className="preview"></div>
       </>
     );
   }

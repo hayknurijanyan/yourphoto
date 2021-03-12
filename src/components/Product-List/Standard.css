@@ -3,8 +3,8 @@
   justify-content: center;
   /* margin: 80px 20px; */
   grid-gap: 20px;
-  grid-template-columns: repeat(4, 220px);
-  grid-template-rows: repeat(2, 220px);
+  grid-template-columns: repeat(4, minmax(250px, auto));
+  grid-template-rows: repeat(2, minmax(250px, auto));
   /* background-color: blueviolet; */
   /* height: 700px; */
   /* background-color: green; */
@@ -34,56 +34,68 @@
   background: url(../../imgs/photos/passport.JPG);
   background-size: cover;
   border-radius: 4px;
-  height: 220px;
-  width: 220px;
 }
 
 .box2 {
   background: url(../../imgs/photos/squere.JPG);
   background-size: cover;
   border-radius: 4px;
-  height: 220px;
-  width: 220px;
 }
 .box3 {
   background: url(../../imgs/photos/standard.JPG);
   background-size: cover;
   border-radius: 4px;
-  height: 220px;
-  width: 220px;
 }
 .box4 {
   background: url(../../imgs/photos/medium.JPG);
   background-size: cover;
   border-radius: 4px;
-  height: 220px;
-  width: 220px;
 }
 .box5 {
   background: url(../../imgs/photos/A5.JPG);
   background-size: cover;
   border-radius: 4px;
-  height: 220px;
-  width: 220px;
 }
 .box6 {
   background: url(../../imgs/photos/letter.JPG);
   background-size: cover;
   border-radius: 4px;
-  height: 220px;
-  width: 220px;
 }
 .box7 {
   background: url(../../imgs/photos/A4.JPG);
   background-size: cover;
   border-radius: 4px;
-  height: 220px;
-  width: 220px;
 }
 .box8 {
   background: url(../../imgs/photos/A3.JPG);
   background-size: cover;
   border-radius: 4px;
-  height: 220px;
-  width: 220px;
+}
+
+@media only screen and (max-width: 1200px) {
+  #standard {
+    display: grid;
+    justify-content: center;
+    /* margin: 80px 20px; */
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, minmax(180px, auto));
+    grid-template-rows: repeat(2, minmax(180px, auto));
+    /* background-color: blueviolet; */
+    /* height: 700px; */
+    /* background-color: green; */
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  #standard {
+    display: grid;
+    justify-content: center;
+    padding: 10px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, minmax(140px, auto));
+    grid-template-rows: repeat(4, minmax(140px, auto));
+    /* background-color: blueviolet; */
+    /* height: 700px; */
+    /* background-color: green; */
+  }
 }

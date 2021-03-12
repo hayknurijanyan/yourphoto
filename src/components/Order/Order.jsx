@@ -36,19 +36,25 @@ class Order extends Component {
     this.setState({ images });
   };
 
-  handleIncreaseCount = () => {
-    let n = ++this.state.count;
-    this.setState({ count: n });
+  handleIncreaseCount = (el) => {
+    const images = [...this.state.images];
+    const index = images.indexOf(el);
+    images[index] = { ...el };
+    images[index].count++;
+    this.setState({ images });
   };
 
-  handleDecreaseCount = () => {
-    if (this.state.count > 1) {
-      let n = --this.state.count;
-      this.setState({ count: n });
+  handleDecreaseCount = (el) => {
+    if (el.count > 1) {
+      const images = [...this.state.images];
+      const index = images.indexOf(el);
+      images[index] = { ...el };
+      images[index].count--;
+      this.setState({ images });
     }
+    console.log(el);
   };
   render() {
-    console.log(this.state.images, "images");
     return (
       <main id="main">
         <header>
@@ -61,7 +67,7 @@ class Order extends Component {
           </div>
         </header>
         {/* <ProgressBar variant="danger" animated now={3} /> */}
-        <Cropper />
+        {/* <Cropper images={this.state.images} /> */}
         <Preview />
         <Grid
           increaseCount={this.handleIncreaseCount}

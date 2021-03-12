@@ -16,7 +16,7 @@ function App() {
     <>
       <Navbar />
       <div className="main">
-        <Order />
+        {/* <Order /> */}
         <Slider />
         <Products />
         <Ideas />

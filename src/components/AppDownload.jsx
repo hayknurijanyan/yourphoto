@@ -19,7 +19,8 @@ const AppDownload = () => {
             <img src={playstore} alt="" width="150px" />
           </div>
         </article>
-        <img src={appImg} alt="" height="500px" />
+
+        <img className="app-img" src={appImg} alt="" />
       </section>
     </>
   );

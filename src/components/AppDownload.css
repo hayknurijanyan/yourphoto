@@ -15,6 +15,10 @@
   color: var(--textDark);
 }
 
+.app-img {
+  height: 500px;
+}
+
 .app-download-article h1 {
   margin-top: 10px;
   margin-bottom: 60px;
@@ -23,6 +27,7 @@
 }
 
 .app-download-article h5 {
+  text-align: center;
   margin: 0;
   padding: 0;
 }
@@ -30,4 +35,37 @@
 .app-download-article-icons img {
   margin: 0 20px;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 830px) {
+  #app-download {
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 700px;
+    background-color: var(--lightBackground);
+    width: 100%;
+  }
+  .app-img {
+    height: 270px;
+  }
+  .app-download-article h1 {
+    font-size: 24px;
+  }
+
+  .app-download-article h5 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+  }
+  .app-download-article-icons {
+    display: flex;
+  }
+  .app-download-article-icons img {
+    width: 90px;
+    margin: 0px 4px;
+  }
 }

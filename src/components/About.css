@@ -32,3 +32,27 @@
   padding-right: 20px;
   overflow: hidden;
 }
+
+@media only screen and (max-width: 1200px) {
+  #about {
+    background-color: var(--lightBackground);
+    padding: 10px;
+    height: fit-content;
+  }
+  .about-container {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 20px;
+  }
+
+  .about-container figcaption {
+    padding: 20px;
+  }
+
+  .about-container img {
+    width: 70%;
+    height: fit-content;
+    display: flex;
+    padding: 20px;
+  }
+} ;

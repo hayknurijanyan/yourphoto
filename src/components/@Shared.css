@@ -26,3 +26,11 @@
 .on-active {
   border-bottom: 1px solid #f73378;
 }
+
+@media only screen and (max-width: 1200px) {
+  .section-title {
+    padding: 24px 10px;
+    font-size: 26px;
+    font-weight: 400;
+  }
+} ;

@@ -100,7 +100,10 @@
 
   .bars {
     display: block !important;
-    margin-right: 50px;
+    margin-right: 20px;
     font-size: 26px !important;
+  }
+  .navbar-logo {
+    margin: 0 0 0 20px;
   }
 } ;

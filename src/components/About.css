@@ -1,12 +1,13 @@
 #about {
   background-color: var(--lightBackground);
   padding: 50px;
-  height: 900px;
+  height: fit-content;
 }
 
 .about-container {
   display: flex;
   margin-top: 70px;
+  height: fit-content;
 }
 
 .about-container figcaption {
@@ -28,15 +29,12 @@
 .about-container p {
   font-size: large;
   font-weight: 400;
-  max-height: 600px;
   padding-right: 20px;
-  overflow: hidden;
 }
 
 @media only screen and (max-width: 1200px) {
   #about {
-    background-color: var(--lightBackground);
-    padding: 10px;
+    padding: 20px;
     height: fit-content;
   }
   .about-container {
@@ -46,13 +44,25 @@
   }
 
   .about-container figcaption {
-    padding: 20px;
+    padding: 0;
   }
 
   .about-container img {
-    width: 70%;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+  .about-container h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .about-container p {
+    font-size: 16px;
+    font-weight: 300;
     height: fit-content;
-    display: flex;
-    padding: 20px;
+    padding-right: 0px;
+    text-align: center;
   }
 } ;

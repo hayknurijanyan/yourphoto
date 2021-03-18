@@ -51,7 +51,7 @@
 
 @media only screen and (max-width: 1200px) {
   #ideas {
-    padding: 50px;
+    padding: 20px;
     height: fit-content;
   }
 
@@ -61,7 +61,6 @@
     justify-content: center;
     align-items: flex-start;
     margin-top: 80px;
-    /* color: var(--textDark); */
   }
 
   .ideas-article {
@@ -78,27 +77,48 @@
   }
 
   .ideas-article figcaption {
-    padding: 0 35px 0 35px;
+    padding: 0 35px 40px 35px;
   }
 
   .ideas-img1 {
-    background-image: url(./../imgs/ideas/1.jpg);
-    background-size: cover;
-    height: 330px;
-    width: 100%px;
+    height: 600px;
+    width: 100%;
   }
 
   .ideas-img2 {
-    background-image: url(./../imgs/ideas/2.jpg);
-    background-size: cover;
-    height: 330px;
+    height: 600px;
     width: 100%;
   }
 
   .ideas-img3 {
-    background-image: url(./../imgs/ideas/3.jpg);
-    background-size: cover;
-    height: 330px;
+    height: 600px;
     width: 100%;
   }
-} ;
+}
+
+@media only screen and (max-width: 830px) {
+  .ideas-articles {
+    margin-top: 20px;
+  }
+  .ideas-article p {
+    font-size: 14px;
+  }
+  .ideas-article figcaption {
+    padding: 0 2px 40px 2px;
+  }
+
+  .ideas-img1 {
+    height: 280px;
+    width: 100%;
+  }
+
+  .ideas-img2 {
+    height: 280px;
+    width: 100%;
+  }
+
+  .ideas-img3 {
+    height: 280px;
+    width: 100%;
+  }
+}

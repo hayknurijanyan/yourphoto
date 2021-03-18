@@ -19,10 +19,6 @@ class Products extends Component {
         active: false,
       },
       {
-        title: "CALENDAR",
-        active: false,
-      },
-      {
         title: "SEE ALL >",
         active: false,
       },

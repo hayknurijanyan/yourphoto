@@ -15,45 +15,48 @@ const Footer = () => {
             while we do it!
           </p>
         </div>
-        <nav className="footer-nav">
-          <h3>Navigation</h3>
-          <ul className="footer-nav-links">
-            <li className="footer-nav-link">
-              <a href="#">Home</a>
-            </li>
-            <li className="footer-nav-link">
-              <a href="#prints">Products</a>
-            </li>
-            <li className="footer-nav-link">
-              <a href="#">Reviews</a>
-            </li>
-            <li className="footer-nav-link">
-              <a href="#about">About Us</a>
-            </li>
-            <li className="footer-nav-link">
-              <a href="#">Support</a>
-            </li>
-          </ul>
-        </nav>
-        <div className="footer-contacts">
-          <h3>Contacts</h3>
-          <div className="footer-contact-item">
-            <i className="fa fa-whatsapp" aria-hidden="true"></i>
-            <span> +374 77 54 04 54</span>
-          </div>
-          <div className="footer-contact-item">
-            <i className="fa fa-envelope-o" aria-hidden="true"></i>
-            <span>yourphotoprints@gmail.com</span>
-          </div>
-          <div className="footer-icon-social">
-            <i className="fa fa-apple" aria-hidden="true"></i>
-            <i className="fa fa-android" aria-hidden="true"></i>
-            <i className="fa fa-facebook-square" aria-hidden="true"></i>
-            <i className="fa fa-instagram" aria-hidden="true"></i>
-            <i className="fa fa-youtube-play" aria-hidden="true"></i>
-            <i className="fa fa-google-plus-square" aria-hidden="true"></i>
+        <div className="nav-contact">
+          <nav className="footer-nav">
+            <h3>Navigation</h3>
+            <ul className="footer-nav-links">
+              <li className="footer-nav-link">
+                <a href="#">Home</a>
+              </li>
+              <li className="footer-nav-link">
+                <a href="#prints">Products</a>
+              </li>
+              <li className="footer-nav-link">
+                <a href="#">Reviews</a>
+              </li>
+              <li className="footer-nav-link">
+                <a href="#about">About Us</a>
+              </li>
+              <li className="footer-nav-link">
+                <a href="#">Support</a>
+              </li>
+            </ul>
+          </nav>
+          <div className="footer-contacts">
+            <h3>Contacts</h3>
+            <div className="footer-contact-item">
+              <i className="fa fa-whatsapp" aria-hidden="true"></i>
+              <span> +374 77 54 04 54</span>
+            </div>
+            <div className="footer-contact-item">
+              <i className="fa fa-envelope-o" aria-hidden="true"></i>
+              <span>yourphotoprints@gmail.com</span>
+            </div>
+            <div className="footer-icon-social">
+              <i className="fa fa-apple" aria-hidden="true"></i>
+              <i className="fa fa-android" aria-hidden="true"></i>
+              <i className="fa fa-facebook-square" aria-hidden="true"></i>
+              <i className="fa fa-instagram" aria-hidden="true"></i>
+              <i className="fa fa-youtube-play" aria-hidden="true"></i>
+              <i className="fa fa-google-plus-square" aria-hidden="true"></i>
+            </div>
           </div>
         </div>
+
         <div className="footer-icons">
           <div className="footer-icon-payments">
             <h3>Payment Methods</h3>

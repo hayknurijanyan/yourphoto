@@ -43,10 +43,51 @@
   .key-features-container {
     margin-top: 70px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: fit-content;
+  }
+  .key-feature p {
+    width: 250px;
+    font-weight: 300;
+    font-size: 13px;
+    margin-bottom: 42px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #key-features {
+    padding: 10px;
+    height: fit-content;
+  }
+
+  .key-features-container {
+    margin-top: 20px;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     justify-content: center;
     align-items: center;
     height: fit-content;
+  }
+  .key-feature img {
+    width: 250px;
+  }
+
+  .key-feature h3 {
+    color: whitesmoke;
+    text-align: center;
+    font-size: 18px;
+    padding: 6px 0;
+  }
+
+  .key-feature p {
+    color: whitesmoke;
+    text-align: center;
+    width: 250px;
+    font-weight: 300;
+    font-size: 12px;
+    margin-bottom: 42px;
   }
 }

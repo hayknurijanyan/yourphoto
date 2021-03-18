@@ -37,35 +37,49 @@
   cursor: pointer;
 }
 
+@media only screen and (max-width: 1200px) {
+  .app-download-article-icons img {
+    width: 120px;
+    margin: 4px 4px;
+  }
+  .app-download-article h5 {
+    font-size: 14px;
+  }
+
+  .app-download-article h1 {
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+}
+
 @media only screen and (max-width: 830px) {
   #app-download {
-    padding: 0 100px;
+    padding: 60px;
+    height: fit-content;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-evenly;
-    height: 700px;
-    background-color: var(--lightBackground);
     width: 100%;
   }
   .app-img {
     height: 270px;
   }
   .app-download-article h1 {
-    font-size: 24px;
+    font-size: 13px;
+    margin-bottom: 20px;
   }
 
   .app-download-article h5 {
     text-align: center;
     margin: 0;
-    padding: 0;
-    font-size: 12px;
+    margin-top: 20px;
+    font-size: 8px;
   }
   .app-download-article-icons {
     display: flex;
   }
   .app-download-article-icons img {
-    width: 90px;
-    margin: 0px 4px;
+    width: 60px;
+    margin: 4px 4px;
   }
 }

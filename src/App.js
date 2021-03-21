@@ -10,23 +10,28 @@ import Products from "./components/Products";
 import Slider from "./components/Slider";
 import Footer from "./components/Footer";
 import Order from "./components/Order/Order";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <div className="main">
-        {/* <Order /> */}
-        <Slider />
-        <Products />
-        <Ideas />
-        <AppDownload />
-        <KeyFeatures />
-        <Delivery />
-        <About />
-        <Contact />
-      </div>
-      <Footer />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/order" exact component={Order} />
+          <div className="main">
+            <Slider />
+            <Products />
+            <Ideas />
+            <AppDownload />
+            <KeyFeatures />
+            <Delivery />
+            <About />
+            <Contact />
+          </div>
+        </Switch>
+        <Footer />
+      </Router>
     </>
   );
 }

@@ -6,7 +6,7 @@ import logo from "../imgs/logo/logo.png";
 
 class Navbar extends Component {
   state = {
-    clicked: false,
+    clicked: true,
   };
 
   handleClick = () => {
@@ -16,17 +16,19 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="NavbarItems">
-        <img className="navbar-logo" src={logo} alt="" />
-        <h1 className="navbar-logo-text">YourPhoto</h1>
-        <div className="menu-icon" onClick={this.handleClick}>
-          <i className="fa fa-bars" aria-hidden="true"></i>
+        <div className="navbar-logo">
+          <img className="navbar-logo-img" src={logo} alt="" />
+          <h1 className="navbar-logo-text">YourPhoto</h1>
         </div>
-        <ul
-          className={this.state.clicked ? "navbar-menu active" : "navbar-menu"}>
+        <ul className={this.state.clicked ? "navbar-menu open" : "navbar-menu"}>
           {MenuItems.map((item, index) => {
             return (
               <li key={index}>
-                <a className={item.cName} href={item.url}>
+                <a
+                  className={
+                    this.state.clicked ? item.cName : "mobile-nav-links"
+                  }
+                  href={item.url}>
                   {item.title}
                 </a>
               </li>
@@ -36,7 +38,10 @@ class Navbar extends Component {
         <Button className="cta" variant="outline-danger">
           Order Now
         </Button>{" "}
-        <i class="fa fa-bars bars" aria-hidden="true"></i>
+        <i
+          onClick={this.handleClick}
+          className="fa fa-bars bars"
+          aria-hidden="true"></i>
       </nav>
     );
   }

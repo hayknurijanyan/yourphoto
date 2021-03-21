@@ -21,7 +21,7 @@ const Contact = () => {
           <h2>Contacts</h2>
           <div className="contact-detail-item">
             <i className="fa fa-map-marker" aria-hidden="true"></i>
-            <span>Address: H. Paronyan 6, Yerevan, Armenia</span>
+            <span>Address: H. Paronyan 6, Yerevan</span>
           </div>
           <div className="contact-detail-item">
             <i className="fa fa-phone" aria-hidden="true"></i>

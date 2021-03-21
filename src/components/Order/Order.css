@@ -18,8 +18,9 @@
 #main {
   /* padding-top:32px; */
   margin-top: 76px;
-  min-height: 900px;
+  min-height: 500px;
   max-height: fit-content;
+  background-color: var(--lightBackground);
 }
 
 #main header {

@@ -24,12 +24,17 @@
 }
 
 #main header {
-  background-color: var(--dark);
+  /* background-color: var(--dark); */
   height: 140px;
   display: flex;
   padding: 30px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.buttons Button {
+  margin: 0 5px;
+  font-size: 12px;
 }
 
 #crop {
@@ -74,3 +79,11 @@
 .upload-previews img {
   padding: 3px;
 }
+
+@media only screen and (max-width: 830px) {
+  .main-quantity {
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: 500;
+  }
+} ;

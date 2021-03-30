@@ -1,16 +1,10 @@
 import "./App.css";
-import About from "./components/About";
-import AppDownload from "./components/AppDownload";
-import Contact from "./components/Contact";
-import Delivery from "./components/Delivery";
-import Ideas from "./components/Ideas";
-import KeyFeatures from "./components/KeyFeatures";
-import Navbar from "./components/Navbar";
-import Products from "./components/Products";
-import Slider from "./components/Slider";
-import Footer from "./components/Footer";
 import Order from "./components/Order/Order";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Cart from "./components/Cart/Cart";
+import Navbar from "./components/Home/Navbar";
+import Home from "./components/Home/Home";
+import Checkout from "./components/Cart/Checkout";
 
 function App() {
   return (
@@ -19,18 +13,12 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/order" exact component={Order} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/cart/checkout" exact component={Checkout} />
           <div className="main">
-            <Slider />
-            <Products />
-            <Ideas />
-            <AppDownload />
-            <KeyFeatures />
-            <Delivery />
-            <About />
-            <Contact />
+            <Route path="/" exact component={Home} />
           </div>
         </Switch>
-        <Footer />
       </Router>
     </>
   );

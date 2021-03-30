@@ -25,7 +25,7 @@ class Image extends Component {
           <div className="img-container">
             <i
               onClick={() => this.props.onDelete(this.props.id)}
-              class="fa fa-times-circle delete-icon"
+              className="fa fa-times-circle delete-icon"
               aria-hidden="true"></i>
             <img src={this.props.image.imgSrc} alt="" />
           </div>
@@ -33,7 +33,7 @@ class Image extends Component {
             <span
               onClick={this.props.decreaseCount}
               className="img-count-decrease">
-              <i class="fa fa-minus" aria-hidden="true"></i>
+              <i className="fa fa-minus" aria-hidden="true"></i>
             </span>
             <span className="img-count">{this.props.image.count}</span>
             <span

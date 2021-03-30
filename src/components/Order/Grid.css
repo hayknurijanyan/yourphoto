@@ -1,5 +1,5 @@
 .grid-container {
-  background-color: rgb(168, 168, 168);
+  /* background-color: rgb(168, 168, 168); */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
   grid-row-gap: 14px;

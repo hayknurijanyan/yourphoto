@@ -1,35 +1,27 @@
 import React, { useRef, useState } from "react";
 import { Card, Form, Button, Container, Alert } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
-const SignUp = () => {
+const ForgotPassword = () => {
   const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
+  const { resetPassword } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  const [message, setMessage] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (passwordRef.current.value.length < 6) {
-      return setError("Please enter more then 6 characters");
-    }
-
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not match");
-    }
-
     try {
+      setMessage("");
       setError("");
       setLoading(true);
       console.log(emailRef.current.value);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await resetPassword(emailRef.current.value);
+      setMessage("Reset mail sent, please check your email");
     } catch {
-      setError("Failed to create an account");
+      setError("Failed to reset password");
     }
     setLoading(false);
   }
@@ -42,8 +34,9 @@ const SignUp = () => {
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Sign Up</h2>
+              <h2 className="text-center mb-4">Password Reset</h2>
               {error && <Alert variant="danger">{error}</Alert>}
+              {message && <Alert variant="success">{message}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
                   <Form.Label>Email</Form.Label>
@@ -52,34 +45,21 @@ const SignUp = () => {
                     ref={emailRef}
                     requierd></Form.Control>
                 </Form.Group>
-                <Form.Group id="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    ref={passwordRef}
-                    requierd></Form.Control>
-                </Form.Group>
-                <Form.Group id="password-confirm">
-                  <Form.Label>Password Confirmation</Form.Label>
-                  <Form.Control
-                    type="password"
-                    ref={passwordConfirmRef}
-                    requierd></Form.Control>
-                </Form.Group>
+
                 <Button
-                  className="w-100 mt-3"
+                  className="w-100 mt-4"
                   type="submit"
                   variant="danger"
                   disabled={loading}>
-                  Sign Up
+                  Reset Password
                 </Button>
               </Form>
             </Card.Body>
           </Card>
           <div className="w-100 text-center mt-2">
-            Already have an account?{" "}
+            Back to{" "}
             <Link style={{ color: "blue" }} to="/signin">
-              Log In
+              Log in
             </Link>
           </div>
         </div>
@@ -88,4 +68,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default ForgotPassword;

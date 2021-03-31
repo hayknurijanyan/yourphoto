@@ -40,7 +40,9 @@ class Navbar extends Component {
           <Link to="cart">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           </Link>
-          <i class="fa fa-user-circle" aria-hidden="true"></i>
+          <Link to="signin">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+          </Link>
         </div>
         <i
           onClick={this.handleClick}

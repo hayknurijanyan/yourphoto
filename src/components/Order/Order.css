@@ -18,8 +18,9 @@
 #main {
   /* padding-top:32px; */
   margin-top: 76px;
-  min-height: 500px;
+  min-height: 90vh;
   max-height: fit-content;
+  padding: 0 40px;
   background-color: var(--lightBackground);
 }
 
@@ -32,9 +33,16 @@
   justify-content: space-between;
 }
 
-.buttons Button {
+.right-buttons Button {
   margin: 0 5px;
-  font-size: 12px;
+}
+
+.left-buttons Button {
+  margin: 0 5px;
+}
+
+.left-buttons {
+  display: flex;
 }
 
 #crop {
@@ -85,5 +93,15 @@
     color: whitesmoke;
     font-size: 18px;
     font-weight: 500;
+  }
+
+  .right-buttons Button {
+    margin: 0 5px;
+    font-size: 12px;
+  }
+
+  .left-buttons Button {
+    margin: 0 5px;
+    font-size: 12px;
   }
 } ;

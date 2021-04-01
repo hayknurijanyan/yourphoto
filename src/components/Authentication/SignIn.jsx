@@ -42,14 +42,14 @@ const SignIn = () => {
                   <Form.Control
                     type="email"
                     ref={emailRef}
-                    requierd></Form.Control>
+                    requierd="true"></Form.Control>
                 </Form.Group>
                 <Form.Group id="password">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
                     type="password"
                     ref={passwordRef}
-                    requierd></Form.Control>
+                    requierd="true"></Form.Control>
                 </Form.Group>
                 <div className="w-100 text-center mt-3">
                   <Link style={{ color: "grey" }} to="/forgot-password">

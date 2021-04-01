@@ -40,6 +40,7 @@ export function AuthProvider({ children }) {
     login,
     signup,
     resetPassword,
+    logout,
   };
 
   return (

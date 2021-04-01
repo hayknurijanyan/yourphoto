@@ -43,7 +43,7 @@ const ForgotPassword = () => {
                   <Form.Control
                     type="email"
                     ref={emailRef}
-                    requierd></Form.Control>
+                    requierd="true"></Form.Control>
                 </Form.Group>
 
                 <Button

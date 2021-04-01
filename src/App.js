@@ -9,6 +9,8 @@ import SignIn from "./components/Authentication/SignIn";
 import SignUp from "./components/Authentication/SignUp";
 import { AuthProvider } from "./contexts/AuthContext";
 import ForgotPassword from "./components/Authentication/ForgotPassword";
+import Profile from "./components/Authentication/Profile";
+import PrivateRoute from "./components/Authentication/PrivateRoute";
 
 function App() {
   return (
@@ -17,14 +19,15 @@ function App() {
         <AuthProvider>
           <Navbar />
           <Switch>
-            <Route path="/signin" exact component={SignIn} />
-            <Route path="/signup" exact component={SignUp} />
-            <Route path="/forgot-password" exact component={ForgotPassword} />
-            <Route path="/order" exact component={Order} />
-            <Route path="/cart" exact component={Cart} />
-            <Route path="/cart/checkout" exact component={Checkout} />
+            <PrivateRoute path="/profile" component={Profile} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/forgot-password" component={ForgotPassword} />
+            <Route path="/order" component={Order} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/cart/checkout" component={Checkout} />
             <div className="main">
-              <Route path="/" exact component={Home} />
+              <Route path="/" component={Home} />
             </div>
           </Switch>
         </AuthProvider>

@@ -1,93 +1,101 @@
-import {
-  Dropdown,
-  ProgressBar,
-  Button,
-  Form,
-  DropdownButton,
-} from "react-bootstrap";
-import React, { Component } from "react";
+import React, { useState, useRef } from "react";
 import "./Order.css";
 import Cropper from "./Cropper";
 import Preview from "./Preview";
 import Grid from "./Grid";
 import { Link } from "react-router-dom";
+import {
+  Dropdown,
+  Button,
+  Card,
+  DropdownButton,
+  Container,
+} from "react-bootstrap";
 
-class Order extends Component {
-  fileObj = [];
-  fileArray = [];
-  state = {
-    selectedSize: "10 x 15",
-    uploading: false,
-    images: [],
+let fileArray = [];
+let fileObj = [];
+
+function Order() {
+  const [selectedSize, setSelectedSize] = useState("10x15");
+  const [uploading, setUploading] = useState(false);
+  const [images, setImages] = useState([]);
+  const hiddenFileInput = React.useRef(null);
+
+  const handleInputClick = (event) => {
+    hiddenFileInput.current.click();
   };
 
-  handleFileInput = (e) => {
-    this.fileObj.unshift(e.target.files);
-    for (let i = 0; i < this.fileObj[0].length; i++) {
-      this.fileArray.unshift(URL.createObjectURL(this.fileObj[0][i]));
+  const handleFileInput = (e) => {
+    fileObj.unshift(e.target.files);
+    for (let i = 0; i < fileObj[0].length; i++) {
+      fileArray.unshift(URL.createObjectURL(fileObj[0][i]));
     }
 
     let uploads = [];
 
-    this.fileArray.map((blob, i) => {
+    fileArray.map((blob, i) => {
       return uploads.push({
         imgSrc: blob,
         id: i,
         count: 1,
-        size: this.state.selectedSize,
+        size: selectedSize,
       });
     });
-    this.setState({ images: uploads });
-    this.fileObj = [];
+    setImages(uploads);
+    fileObj = [];
   };
 
-  handleDelete = (id) => {
-    const images = this.state.images.filter((img) => {
+  const handleDelete = (id) => {
+    const filteredImages = images.filter((img) => {
       return img.id !== id;
     });
-
-    this.setState({ images });
+    console.log(filteredImages);
+    console.log(images, "images");
+    setImages(filteredImages);
   };
 
-  handleIncreaseCount = (el) => {
-    const images = [...this.state.images];
-    const index = images.indexOf(el);
-    images[index] = { ...el };
-    images[index].count++;
-    this.setState({ images });
+  const handleIncreaseCount = (el) => {
+    let newImages = [...images];
+    const index = newImages.indexOf(el);
+    newImages[index] = { ...el };
+    newImages[index].count++;
+    setImages(newImages);
   };
 
-  handleDecreaseCount = (el) => {
+  const handleDecreaseCount = (el) => {
     if (el.count > 1) {
-      const images = [...this.state.images];
-      const index = images.indexOf(el);
-      images[index] = { ...el };
-      images[index].count--;
-      this.setState({ images });
+      let newImages = [...images];
+      const index = newImages.indexOf(el);
+      newImages[index] = { ...el };
+      newImages[index].count--;
+      setImages(newImages);
     }
-    console.log(el);
   };
 
-  handleDropDownSelect = (e) => {
-    console.log(e);
+  const handleDropDownSelect = (e) => {
     const selectedSize = String(e);
-    this.setState({ selectedSize });
+    setSelectedSize(selectedSize);
   };
 
-  render() {
+  if (images.length > 0) {
     return (
       <main id="main">
         <header>
-          <DropdownButton
-            alignRight
-            title={this.state.selectedSize}
-            id="dropdown-menu-align-right"
-            onSelect={this.handleDropDownSelect}>
-            <Dropdown.Item href="#/10x15 ">10 x 15</Dropdown.Item>
-            <Dropdown.Item href="#/13x18">13 x 18</Dropdown.Item>
-            <Dropdown.Item href="#/A4">A4</Dropdown.Item>
-          </DropdownButton>
-          <div className="buttons">
+          <div className="left-buttons">
+            <Button variant="danger" onClick={handleInputClick}>
+              + Add Photos
+            </Button>
+            <DropdownButton
+              alignRight
+              title={selectedSize}
+              id="dropdown-menu-align-right"
+              onSelect={handleDropDownSelect}>
+              <Dropdown.Item href="#/10x15 ">10 x 15</Dropdown.Item>
+              <Dropdown.Item href="#/13x18">13 x 18</Dropdown.Item>
+              <Dropdown.Item href="#/A4">A4</Dropdown.Item>
+            </DropdownButton>
+          </div>
+          <div className="right-buttons">
             <Link to="/cart">
               <Button>Add To Cart</Button>
             </Link>
@@ -96,17 +104,49 @@ class Order extends Component {
         </header>
         {/* <ProgressBar variant="danger" animated now={3} /> */}
         {/* <Cropper images={this.state.images} /> */}
-        <Preview />
-        <input type="file" onChange={this.handleFileInput} multiple />
-        <div className="main-quantity">
-          Quantity: {this.state.images.length}
+        {/* <Preview /> */}
+        <input
+          type="file"
+          style={{ display: "none" }}
+          ref={hiddenFileInput}
+          onChange={handleFileInput}
+          multiple
+        />
+        <div className="main-quantity" style={{ color: "black" }}>
+          Quantity: {images.length}
         </div>
         <Grid
-          increaseCount={this.handleIncreaseCount}
-          decreaseCount={this.handleDecreaseCount}
-          onDelete={this.handleDelete}
-          images={this.state.images}
+          increaseCount={handleIncreaseCount}
+          decreaseCount={handleDecreaseCount}
+          onDelete={handleDelete}
+          images={images}
         />
+      </main>
+    );
+  } else {
+    return (
+      <main id="main">
+        <Container style={{ paddingTop: "70px" }}>
+          <Card className="text-center">
+            <Card.Header>Everything starts from here!</Card.Header>
+            <Card.Body>
+              <Card.Title>Please upload Your Photos to start</Card.Title>
+              <Card.Text>
+                Click to "Add Photos" or simply drag and drop your photos here.
+              </Card.Text>
+              <Button variant="danger" onClick={handleInputClick}>
+                Add Photos
+              </Button>
+              <input
+                type="file"
+                style={{ display: "none" }}
+                onChange={handleFileInput}
+                ref={hiddenFileInput}
+                multiple
+              />
+            </Card.Body>
+          </Card>
+        </Container>
       </main>
     );
   }

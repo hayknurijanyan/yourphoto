@@ -4,10 +4,11 @@ import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 const SignUp = () => {
+  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
+  const { signup, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -26,8 +27,19 @@ const SignUp = () => {
     try {
       setError("");
       setLoading(true);
-      console.log(emailRef.current.value);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      let response = await signup(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      response.user
+        .updateProfile({
+          displayName: nameRef.current.value,
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      history.push("/");
     } catch {
       setError("Failed to create an account");
     }
@@ -37,7 +49,7 @@ const SignUp = () => {
   return (
     <>
       <Container
-        className="d-flex align-items-center justify-content-center"
+        className="d-flex align-items-center justify-content-center mt-5"
         style={{ minHeight: "100vh" }}>
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card>
@@ -45,26 +57,33 @@ const SignUp = () => {
               <h2 className="text-center mb-4">Sign Up</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
+                <Form.Group id="text">
+                  <Form.Label>Full Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    ref={nameRef}
+                    requierd="true"></Form.Control>
+                </Form.Group>
                 <Form.Group id="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
                     ref={emailRef}
-                    requierd></Form.Control>
+                    requierd="true"></Form.Control>
                 </Form.Group>
                 <Form.Group id="password">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
                     type="password"
                     ref={passwordRef}
-                    requierd></Form.Control>
+                    requierd="true"></Form.Control>
                 </Form.Group>
                 <Form.Group id="password-confirm">
                   <Form.Label>Password Confirmation</Form.Label>
                   <Form.Control
                     type="password"
                     ref={passwordConfirmRef}
-                    requierd></Form.Control>
+                    requierd="true"></Form.Control>
                 </Form.Group>
                 <Button
                   className="w-100 mt-3"

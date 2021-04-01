@@ -4,7 +4,6 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
   grid-row-gap: 14px;
   grid-column-gap: 8px;
-  padding: 40px;
   /* width: 100%; */
   justify-content: center;
   height: fit-content;

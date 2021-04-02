@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Order.css";
 import Cropper from "./Cropper";
 import Preview from "./Preview";
@@ -9,48 +9,48 @@ import {
   Button,
   Card,
   DropdownButton,
+  ProgressBar,
   Container,
 } from "react-bootstrap";
+import { v4 as uuidv4 } from "uuid";
 
-let fileArray = [];
-let fileObj = [];
-
-function Order() {
-  const [selectedSize, setSelectedSize] = useState("10x15");
+function Order(props) {
+  let [selectedSize, setSelectedSize] = useState(
+    props.match.params.id.split("x").join(" x ")
+  );
   const [uploading, setUploading] = useState(false);
   const [images, setImages] = useState([]);
   const hiddenFileInput = React.useRef(null);
+  const [message, setMessage] = useState("");
 
-  const handleInputClick = (event) => {
-    hiddenFileInput.current.click();
-  };
+  // useEffect(() => {
+  //   // Run! Like go get some data from an API.
+  //   }
+  // });
 
   const handleFileInput = (e) => {
-    fileObj.unshift(e.target.files);
-    for (let i = 0; i < fileObj[0].length; i++) {
-      fileArray.unshift(URL.createObjectURL(fileObj[0][i]));
-    }
-
     let uploads = [];
+    let newImages = [...images];
+    uploads.unshift(e.target.files);
+    uploads = Object.values(uploads[0]);
 
-    fileArray.map((blob, i) => {
-      return uploads.push({
-        imgSrc: blob,
-        id: i,
+    uploads.map((el) => {
+      return newImages.unshift({
+        imgSrc: URL.createObjectURL(el),
+        id: uuidv4(),
         count: 1,
-        size: selectedSize,
       });
     });
-    setImages(uploads);
-    fileObj = [];
+
+    setImages(newImages);
+    console.log(images, "ALLIMAGES");
   };
 
   const handleDelete = (id) => {
     const filteredImages = images.filter((img) => {
       return img.id !== id;
     });
-    console.log(filteredImages);
-    console.log(images, "images");
+    console.log(filteredImages, "FILTERED images");
     setImages(filteredImages);
   };
 
@@ -72,12 +72,12 @@ function Order() {
     }
   };
 
-  const handleDropDownSelect = (e) => {
-    const selectedSize = String(e);
-    setSelectedSize(selectedSize);
+  const handleInputClick = (event) => {
+    hiddenFileInput.current.click();
   };
 
   if (images.length > 0) {
+    console.log(selectedSize, "SIZE");
     return (
       <main id="main">
         <header>
@@ -88,16 +88,62 @@ function Order() {
             <DropdownButton
               alignRight
               title={selectedSize}
-              id="dropdown-menu-align-right"
-              onSelect={handleDropDownSelect}>
-              <Dropdown.Item href="#/10x15 ">10 x 15</Dropdown.Item>
-              <Dropdown.Item href="#/13x18">13 x 18</Dropdown.Item>
-              <Dropdown.Item href="#/A4">A4</Dropdown.Item>
+              id="dropdown-menu-align-right">
+              <Dropdown.Item
+                onClick={(e) => {
+                  setSelectedSize("3.5 x 4.5");
+                }}>
+                3.5 x 4.5
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={(e) => {
+                  setSelectedSize("10 x 10");
+                }}>
+                10 x 10
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={(e) => {
+                  setSelectedSize("10 x 15");
+                }}>
+                10 x 15
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={(e) => {
+                  setSelectedSize("13 x 18");
+                }}>
+                13 x 18
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={(e) => {
+                  setSelectedSize("A5 (14 x 21)");
+                }}>
+                A5 (14 x 21)
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={(e) => {
+                  setSelectedSize("21 x 28");
+                }}>
+                21 x 28
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={(e) => {
+                  setSelectedSize("A4");
+                }}>
+                A4
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={(e) => {
+                  setSelectedSize("A3");
+                }}>
+                A3
+              </Dropdown.Item>
             </DropdownButton>
           </div>
           <div className="right-buttons">
-            <Link to="/cart">
-              <Button>Add To Cart</Button>
+            <Link>
+              <Button onClick={() => props.handleAddToCart()} variant="primary">
+                Add To Cart
+              </Button>
             </Link>
             <Button>Checkout</Button>
           </div>
@@ -105,6 +151,7 @@ function Order() {
         {/* <ProgressBar variant="danger" animated now={3} /> */}
         {/* <Cropper images={this.state.images} /> */}
         {/* <Preview /> */}
+        {/* {uploading && <ProgressBar animated now={45} />} */}
         <input
           type="file"
           style={{ display: "none" }}
@@ -112,9 +159,7 @@ function Order() {
           onChange={handleFileInput}
           multiple
         />
-        <div className="main-quantity" style={{ color: "black" }}>
-          Quantity: {images.length}
-        </div>
+        <div className="main-quantity">Quantity: {images.length}</div>
         <Grid
           increaseCount={handleIncreaseCount}
           decreaseCount={handleDecreaseCount}

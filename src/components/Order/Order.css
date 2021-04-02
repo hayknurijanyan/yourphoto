@@ -68,8 +68,12 @@
 }
 
 .main-quantity {
-  color: whitesmoke;
-  font-size: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 30px;
+  color: rgb(160, 160, 160);
+  font-size: 18px;
   font-weight: 500;
 }
 

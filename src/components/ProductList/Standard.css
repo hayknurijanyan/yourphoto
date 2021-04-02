@@ -38,36 +38,43 @@
   background: url(../../imgs/photos/squere.JPG);
   background-size: cover;
   border-radius: 4px;
+  text-decoration: none !important;
 }
 .box3 {
   background: url(../../imgs/photos/standard.JPG);
   background-size: cover;
   border-radius: 4px;
+  text-decoration: none !important;
 }
 .box4 {
   background: url(../../imgs/photos/medium.JPG);
   background-size: cover;
   border-radius: 4px;
+  text-decoration: none !important;
 }
 .box5 {
   background: url(../../imgs/photos/A5.JPG);
   background-size: cover;
   border-radius: 4px;
+  text-decoration: none !important;
 }
 .box6 {
   background: url(../../imgs/photos/letter.JPG);
   background-size: cover;
   border-radius: 4px;
+  text-decoration: none !important;
 }
 .box7 {
   background: url(../../imgs/photos/A4.JPG);
   background-size: cover;
   border-radius: 4px;
+  text-decoration: none !important;
 }
 .box8 {
   background: url(../../imgs/photos/A3.JPG);
   background-size: cover;
   border-radius: 4px;
+  text-decoration: none !important;
 }
 
 @media only screen and (max-width: 1200px) {

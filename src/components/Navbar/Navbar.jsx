@@ -1,11 +1,11 @@
-import { Button, Popover, Overlay } from "react-bootstrap";
+import { Button, Popover, Overlay, Badge } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
 import logo from "../../imgs/logo/logo.png";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [clicked, setClicked] = useState(false);
 
   function handleClickMenu() {
@@ -39,8 +39,21 @@ const Navbar = () => {
           <i className="fa fa-home" aria-hidden="true"></i>
         </Link>
 
-        <Link to="cart">
+        <Link to="/cart">
           <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          {props.cart != "0" && (
+            <Badge
+              pill
+              variant="danger"
+              style={{
+                position: "absolute",
+                textAlign: "center",
+                right: "91px",
+                top: "11px",
+              }}>
+              {props.cart}
+            </Badge>
+          )}
         </Link>
 
         <Link to="profile">

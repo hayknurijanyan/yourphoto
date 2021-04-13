@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import About from "./About";
 import AppDownload from "./AppDownload";
 import Contact from "./Contact";
@@ -9,23 +9,20 @@ import Products from "./Products";
 import Slider from "./Slider";
 import Footer from "./Footer";
 
-class Home extends Component {
-  state = {};
-  render() {
-    return (
-      <>
-        <Slider />
-        <Products />
-        <Ideas />
-        <AppDownload />
-        <KeyFeatures />
-        <Delivery />
-        <About />
-        <Contact />
-        <Footer />
-      </>
-    );
-  }
-}
+const Home = (props) => {
+  return (
+    <>
+      <Slider />
+      <Products handleDefaultSize={(el) => props.handleDefaultSize(el)} />
+      <Ideas />
+      <AppDownload />
+      <KeyFeatures />
+      <Delivery />
+      <About />
+      <Contact />
+      <Footer />
+    </>
+  );
+};
 
 export default Home;

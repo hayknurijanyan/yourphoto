@@ -1,5 +1,5 @@
-import { Button, Popover, Overlay, Badge } from "react-bootstrap";
-import React, { useState, useRef } from "react";
+import { Badge } from "react-bootstrap";
+import React, { useState } from "react";
 import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
 import logo from "../../imgs/logo/logo.png";

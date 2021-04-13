@@ -1,9 +1,13 @@
-import React from "react";
-import { Form, Col, Row, Button } from "react-bootstrap";
+import React, { useRef } from "react";
+import { Form, Col } from "react-bootstrap";
 
 const SippingForm = () => {
+  const firstname = useRef();
+  const lastname = useRef();
+  const address = useRef();
+  const phone = useRef();
   return (
-    <Form>
+    <fieldset>
       {/* <Form.Row>
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Email</Form.Label>
@@ -19,25 +23,25 @@ const SippingForm = () => {
         <Col>
           <Form.Group controlId="formGridName">
             <Form.Label>First Name</Form.Label>
-            <Form.Control placeholder="First name" />
+            <Form.Control ref={firstname} placeholder="First name" />
           </Form.Group>
         </Col>
         <Col>
           <Form.Group controlId="formGridLName">
             <Form.Label>Last Name</Form.Label>
-            <Form.Control placeholder="Last name" />
+            <Form.Control ref={lastname} placeholder="Last name" />
           </Form.Group>
         </Col>
       </Form.Row>
 
       <Form.Group controlId="formGridAddress1">
         <Form.Label>Address</Form.Label>
-        <Form.Control placeholder="1234 Main St" />
+        <Form.Control ref={address} placeholder="1234 Main St" />
       </Form.Group>
 
       <Form.Group controlId="formGridPhone">
         <Form.Label>Phone Number</Form.Label>
-        <Form.Control placeholder="077 XX XX XX" />
+        <Form.Control ref={phone} placeholder="077 XX XX XX" />
       </Form.Group>
 
       <Form.Row>
@@ -75,10 +79,14 @@ const SippingForm = () => {
       <Form.Group id="formGridCheckbox">
         <Form.Check type="checkbox" label="Save Address" />
       </Form.Group>
-      {/* <Button variant="primary" type="submit" style={{ width: "100%" }}>
-        Add Address
+      {/* <Button
+        variant="primary"
+        type="submit"
+        // style={{ display: "none" }}
+      >
+        AAAA
       </Button> */}
-    </Form>
+    </fieldset>
   );
 };
 

@@ -17,7 +17,6 @@ const SignIn = () => {
     try {
       setError("");
       setLoading(true);
-      console.log(emailRef.current.value);
       await login(emailRef.current.value, passwordRef.current.value);
       history.push("/");
     } catch {

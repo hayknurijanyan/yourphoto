@@ -1,151 +1,73 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./Order.css";
-import Cropper from "./Cropper";
-import Preview from "./Preview";
+// import Cropper from "./Cropper";
+// import Preview from "./Preview";
+import { ClassicPrintsData } from "../ProductList/ClassicPrintsData";
 import Grid from "./Grid";
 import { Link } from "react-router-dom";
+import MyVerticallyCenteredModal from "./AddToCartModal";
 import {
   Dropdown,
+  DropdownButton,
   Button,
   Card,
-  DropdownButton,
-  ProgressBar,
   Container,
 } from "react-bootstrap";
-import { v4 as uuidv4 } from "uuid";
 
 function Order(props) {
+  const [modalShow, setModalShow] = useState(false);
+  const hiddenFileInput = useRef(null);
   let [selectedSize, setSelectedSize] = useState(
     props.match.params.id.split("x").join(" x ")
   );
-  const [uploading, setUploading] = useState(false);
-  const [images, setImages] = useState([]);
-  const hiddenFileInput = React.useRef(null);
-  const [message, setMessage] = useState("");
-
-  // useEffect(() => {
-  //   // Run! Like go get some data from an API.
-  //   }
-  // });
-
-  const handleFileInput = (e) => {
-    let uploads = [];
-    let newImages = [...images];
-    uploads.unshift(e.target.files);
-    uploads = Object.values(uploads[0]);
-
-    uploads.map((el) => {
-      return newImages.unshift({
-        imgSrc: URL.createObjectURL(el),
-        id: uuidv4(),
-        count: 1,
-      });
-    });
-
-    setImages(newImages);
-    console.log(images, "ALLIMAGES");
-  };
-
-  const handleDelete = (id) => {
-    const filteredImages = images.filter((img) => {
-      return img.id !== id;
-    });
-    console.log(filteredImages, "FILTERED images");
-    setImages(filteredImages);
-  };
-
-  const handleIncreaseCount = (el) => {
-    let newImages = [...images];
-    const index = newImages.indexOf(el);
-    newImages[index] = { ...el };
-    newImages[index].count++;
-    setImages(newImages);
-  };
-
-  const handleDecreaseCount = (el) => {
-    if (el.count > 1) {
-      let newImages = [...images];
-      const index = newImages.indexOf(el);
-      newImages[index] = { ...el };
-      newImages[index].count--;
-      setImages(newImages);
-    }
-  };
 
   const handleInputClick = (event) => {
     hiddenFileInput.current.click();
   };
 
-  if (images.length > 0) {
-    console.log(selectedSize, "SIZE");
+  const handleModalButton = () => {
+    props.handleAddToCart();
+    setModalShow(true);
+  };
+
+  const handleChangeSize = (el) => {
+    setSelectedSize(el.size);
+    props.handleChangeSize(el);
+  };
+
+  if (props.images.length > 0) {
     return (
       <main id="main">
         <header>
           <div className="left-buttons">
-            <Button variant="danger" onClick={handleInputClick}>
+            <Button variant="primary" onClick={handleInputClick}>
               + Add Photos
             </Button>
             <DropdownButton
               alignRight
               title={selectedSize}
               id="dropdown-menu-align-right">
-              <Dropdown.Item
-                onClick={(e) => {
-                  setSelectedSize("3.5 x 4.5");
-                }}>
-                3.5 x 4.5
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={(e) => {
-                  setSelectedSize("10 x 10");
-                }}>
-                10 x 10
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={(e) => {
-                  setSelectedSize("10 x 15");
-                }}>
-                10 x 15
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={(e) => {
-                  setSelectedSize("13 x 18");
-                }}>
-                13 x 18
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={(e) => {
-                  setSelectedSize("A5 (14 x 21)");
-                }}>
-                A5 (14 x 21)
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={(e) => {
-                  setSelectedSize("21 x 28");
-                }}>
-                21 x 28
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={(e) => {
-                  setSelectedSize("A4");
-                }}>
-                A4
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={(e) => {
-                  setSelectedSize("A3");
-                }}>
-                A3
-              </Dropdown.Item>
+              {ClassicPrintsData.map((el, i) => {
+                return (
+                  <Dropdown.Item key={i} onClick={() => handleChangeSize(el)}>
+                    {el.size}
+                  </Dropdown.Item>
+                );
+              })}
             </DropdownButton>
           </div>
           <div className="right-buttons">
-            <Link>
-              <Button onClick={() => props.handleAddToCart()} variant="primary">
-                Add To Cart
-              </Button>
+            <Button variant="danger" onClick={handleModalButton}>
+              Add To Cart
+            </Button>
+
+            <MyVerticallyCenteredModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
+            <Link to="/cart/checkout">
+              <Button>Checkout</Button>
             </Link>
-            <Button>Checkout</Button>
           </div>
         </header>
         {/* <ProgressBar variant="danger" animated now={3} /> */}
@@ -156,15 +78,15 @@ function Order(props) {
           type="file"
           style={{ display: "none" }}
           ref={hiddenFileInput}
-          onChange={handleFileInput}
+          onChange={props.handleFileInput}
           multiple
         />
-        <div className="main-quantity">Quantity: {images.length}</div>
+        <div className="main-quantity">Quantity: {props.imagesCount}</div>
         <Grid
-          increaseCount={handleIncreaseCount}
-          decreaseCount={handleDecreaseCount}
-          onDelete={handleDelete}
-          images={images}
+          increaseCount={props.handleIncreaseCount}
+          decreaseCount={props.handleDecreaseCount}
+          onDelete={props.handleDelete}
+          images={props.images}
         />
       </main>
     );
@@ -185,7 +107,7 @@ function Order(props) {
               <input
                 type="file"
                 style={{ display: "none" }}
-                onChange={handleFileInput}
+                onChange={props.handleFileInput}
                 ref={hiddenFileInput}
                 multiple
               />

@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Form, Col, ProgressBar } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Col } from "react-bootstrap";
 // import PaymentForm from "./PaymentForm";
 // import ShippingForm from "./ShippingForm";
 import CheckoutTotal from "./CheckoutTotal";
@@ -43,7 +43,6 @@ const Checkout = (props) => {
         saveAddress: touched.saveAddress,
       };
       props.submitOrder(shippingData);
-      console.log(touched);
       setModalShow(true);
     }
   };
@@ -106,17 +105,6 @@ const Checkout = (props) => {
               </div>
               <div className="checkout-shipping">
                 <fieldset>
-                  {/* <Form.Row>
-        <Form.Group as={Col} controlId="formGridEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-
-        <Form.Group as={Col} controlId="formGridPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-      </Form.Row> */}
                   <Form.Row>
                     <Col>
                       <Form.Group controlId="validationFormik101">
@@ -252,13 +240,6 @@ const Checkout = (props) => {
                       label="Save Address"
                     />
                   </Form.Group>
-                  {/* <Button
-        variant="primary"
-        type="submit"
-        // style={{ display: "none" }}
-      >
-        AAAA
-      </Button> */}
                 </fieldset>
               </div>
             </div>

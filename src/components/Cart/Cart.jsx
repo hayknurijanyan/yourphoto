@@ -1,36 +1,58 @@
-import React, { useState } from "react";
+import React from "react";
 import CartItem from "./CartItem";
 import CartTotal from "./CartTotal";
 import "./Cart.css";
-import { Card, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import cartImage from "./../../imgs/photos/icon-emptycart.png";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCart } from "./../../actions";
 
-const Cart = (props) => {
-  if (props.cart.length > 0) {
+const Cart = () => {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const itemsSum = useSelector((state) => state.itemsSum);
+  const subtotal = useSelector((state) => state.subtotal);
+
+  const deleteCartItem = (id) => {
+    console.log(id);
+    const filteredCart = cart.filter((cartItem) => {
+      return cartItem.id !== id;
+    });
+    dispatch(updateCart(filteredCart));
+  };
+
+  if (cart.length > 0) {
     return (
       <div className="cart-container">
         <div className="cart-items">
-          {props.cart.map((el, i) => {
-            return <CartItem key={i} items={el} />;
+          {cart.map((el, i) => {
+            return (
+              <CartItem
+                key={i}
+                items={el}
+                handleDeleteCartItem={() => deleteCartItem(el.id)}
+              />
+            );
           })}
+          <Link to="/order">
+            <div className="cart-items-add">+ Add More Photos</div>
+          </Link>
         </div>
         <div className="cart-total">
-          <CartTotal
-            subtotal={props.subtotal}
-            itemsSum={props.itemsSum}
-            cart={props.cart}
-          />
+          <CartTotal subtotal={subtotal} itemsSum={itemsSum} cart={cart} />
         </div>
       </div>
     );
   } else {
     return (
       <div className="cart-container">
-        <Container className="w-100 d-flex justify-content-center">
+        <Container className="w-100 mt-5 d-flex flex-column align-items-center justify-content-center">
           <img
             style={{ width: "60%" }}
             alt="cart is empty"
             src={cartImage}></img>
+          <h5>Cart is empty</h5>
         </Container>
       </div>
     );

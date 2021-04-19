@@ -9,11 +9,11 @@ import Products from "./Products";
 import Slider from "./Slider";
 import Footer from "./Footer";
 
-const Home = (props) => {
+const Home = () => {
   return (
     <>
       <Slider />
-      <Products handleDefaultSize={(el) => props.handleDefaultSize(el)} />
+      <Products />
       <Ideas />
       <AppDownload />
       <KeyFeatures />

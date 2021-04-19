@@ -1,11 +1,4 @@
-import React, { useState, useRef } from "react";
-import "./Order.css";
-// import Cropper from "./Cropper";
-// import Preview from "./Preview";
-import { ClassicPrintsData } from "../ProductList/ClassicPrintsData";
-import Grid from "./Grid";
-import { Link } from "react-router-dom";
-import MyVerticallyCenteredModal from "./AddToCartModal";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Dropdown,
   DropdownButton,
@@ -13,29 +6,153 @@ import {
   Card,
   Container,
 } from "react-bootstrap";
+import {
+  updateCart,
+  updateSelectedSize,
+  updateImages,
+  updateImagesCount,
+  updateItemsSum,
+  updateSubTotal,
+  clearImages,
+} from "./../../actions";
+import "./Order.css";
+import Grid from "./Grid";
+import AddToCartModal from "./AddToCartModal";
+import { ClassicPrintsData } from "../ProductList/ClassicPrintsData";
+import { useSelector, useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 function Order(props) {
-  const [modalShow, setModalShow] = useState(false);
+  const dispatch = useDispatch();
   const hiddenFileInput = useRef(null);
-  let [selectedSize, setSelectedSize] = useState(
-    props.match.params.id.split("x").join(" x ")
-  );
+  const images = useSelector((state) => state.images);
+  const cart = useSelector((state) => state.cart);
+  const selectedSize = useSelector((state) => state.selectedSize);
+  const imagesCount = useSelector((state) => state.imagesCount);
+  const [modalShow, setModalShow] = useState(false);
+
+  useEffect(() => {
+    const size = selectedSize;
+    if (props.match.params.id) {
+      size[0] = props.match.params.id?.split("x").join(" x ");
+      dispatch(updateSelectedSize(size));
+    }
+  }, []);
+
+  useEffect(() => {
+    const checkSum = () => {
+      let sum = 0;
+      let obj = { ...cart };
+      for (let key in obj) {
+        sum += obj[key].price;
+      }
+
+      dispatch(updateItemsSum(sum));
+      dispatch(updateSubTotal(sum));
+    };
+
+    checkSum();
+  }, [cart]);
+
+  const handleFileInput = (e) => {
+    let uploads = [];
+    let newImages = [...images];
+    uploads.unshift(e.target.files);
+    uploads = Object.values(uploads[0]);
+
+    uploads.map((el) => {
+      return newImages.unshift({
+        imgSrc: URL.createObjectURL(el),
+        img: el,
+        id: uuidv4(),
+        count: 1,
+      });
+    });
+    dispatch(updateImages(newImages));
+  };
+
+  const handleIncreaseCount = (el) => {
+    let newImages = [...images];
+    const index = newImages.indexOf(el);
+    newImages[index] = { ...el };
+    newImages[index].count++;
+    dispatch(updateImages(newImages));
+  };
+
+  const handleDecreaseCount = (el) => {
+    if (el.count > 1) {
+      let newImages = [...images];
+      const index = newImages.indexOf(el);
+      newImages[index] = { ...el };
+      newImages[index].count--;
+      dispatch(updateImages(newImages));
+    }
+  };
+
+  const handleDelete = (id) => {
+    const filteredImages = images.filter((img) => {
+      return img.id !== id;
+    });
+
+    dispatch(updateImages(filteredImages));
+  };
 
   const handleInputClick = (event) => {
     hiddenFileInput.current.click();
   };
 
   const handleModalButton = () => {
-    props.handleAddToCart();
+    addToCart();
     setModalShow(true);
   };
 
   const handleChangeSize = (el) => {
-    setSelectedSize(el.size);
-    props.handleChangeSize(el);
+    const newSize = [el.size, el.price, "Glossy"];
+    dispatch(updateSelectedSize(newSize));
   };
 
-  if (props.images.length > 0) {
+  const addToCart = () => {
+    let quantity = imagesCount;
+    let price = selectedSize[1] * quantity;
+    let newCart = [...cart];
+    let newImages = [...images];
+    let cartNumber = uuidv4();
+    newCart.unshift({
+      images: newImages,
+      price,
+      quantity,
+      size: selectedSize[0],
+      id: cartNumber,
+    });
+    dispatch(updateCart(newCart));
+  };
+
+  const checkoutClick = () => {
+    dispatch(clearImages());
+  };
+  const goToCart = () => {
+    dispatch(clearImages());
+  };
+
+  useEffect(() => {
+    const checkImagesQuantity = () => {
+      let sum = 0;
+      for (let key in images) {
+        sum += images[key].count;
+      }
+      dispatch(updateImagesCount(sum));
+    };
+    checkImagesQuantity();
+  }, [images]);
+
+  const deleteCartItem = (id) => {
+    const filteredCart = cart.filter((cartItem) => {
+      return cartItem.id !== id;
+    });
+    dispatch(updateCart(filteredCart));
+  };
+
+  if (images.length > 0) {
     return (
       <main id="main">
         <header>
@@ -43,9 +160,12 @@ function Order(props) {
             <Button variant="primary" onClick={handleInputClick}>
               + Add Photos
             </Button>
+          </div>
+
+          <div className="right-buttons">
             <DropdownButton
               alignRight
-              title={selectedSize}
+              title={selectedSize[0]}
               id="dropdown-menu-align-right">
               {ClassicPrintsData.map((el, i) => {
                 return (
@@ -55,49 +175,54 @@ function Order(props) {
                 );
               })}
             </DropdownButton>
-          </div>
-          <div className="right-buttons">
-            <Button variant="danger" onClick={handleModalButton}>
-              Add To Cart
-            </Button>
 
-            <MyVerticallyCenteredModal
+            <AddToCartModal
+              handleDeleteCartItem={(id) => deleteCartItem(id)}
+              items={cart}
+              handleAddToCart={addToCart}
+              handleGoToCart={goToCart}
+              handleCheckoutClick={checkoutClick}
               show={modalShow}
               onHide={() => setModalShow(false)}
             />
-            <Link to="/cart/checkout">
-              <Button>Checkout</Button>
-            </Link>
           </div>
         </header>
-        {/* <ProgressBar variant="danger" animated now={3} /> */}
-        {/* <Cropper images={this.state.images} /> */}
-        {/* <Preview /> */}
-        {/* {uploading && <ProgressBar animated now={45} />} */}
         <input
           type="file"
           style={{ display: "none" }}
           ref={hiddenFileInput}
-          onChange={props.handleFileInput}
+          onChange={handleFileInput}
           multiple
         />
-        <div className="main-quantity">Quantity: {props.imagesCount}</div>
         <Grid
-          increaseCount={props.handleIncreaseCount}
-          decreaseCount={props.handleDecreaseCount}
-          onDelete={props.handleDelete}
-          images={props.images}
+          increaseCount={handleIncreaseCount}
+          decreaseCount={handleDecreaseCount}
+          onDelete={handleDelete}
+          images={images}
         />
+        <div className="bottom-footer">
+          <div className="main-quantity">{imagesCount} Photos</div>
+          <Button
+            className="cta-button"
+            variant="danger"
+            onClick={handleModalButton}>
+            Add To Cart
+          </Button>
+        </div>
       </main>
     );
   } else {
     return (
       <main id="main">
-        <Container style={{ paddingTop: "70px" }}>
+        <Container
+          style={{
+            marginTop: "120px",
+            height: "fit-content",
+          }}>
           <Card className="text-center">
             <Card.Header>Everything starts from here!</Card.Header>
             <Card.Body>
-              <Card.Title>Please upload Your Photos to start</Card.Title>
+              <Card.Title>Upload photos to start</Card.Title>
               <Card.Text>
                 Click to "Add Photos" or simply drag and drop your photos here.
               </Card.Text>
@@ -107,7 +232,7 @@ function Order(props) {
               <input
                 type="file"
                 style={{ display: "none" }}
-                onChange={props.handleFileInput}
+                onChange={handleFileInput}
                 ref={hiddenFileInput}
                 multiple
               />

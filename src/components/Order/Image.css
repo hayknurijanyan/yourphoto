@@ -6,7 +6,7 @@
   width: 200px;
   height: 200px;
 
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(240, 240, 240);
   border: 1px solid pink;
   border-radius: 3px;
   overflow: hidden;
@@ -70,3 +70,28 @@
 .delete-icon:hover {
   color: #f73378;
 }
+
+@media only screen and (max-width: 830px) {
+  .img-container {
+    width: 140px;
+    height: 140px;
+  }
+  .img-details {
+    width: 140px;
+  }
+  .delete-icon {
+    position: absolute;
+    margin-right: 0px;
+    margin-left: 120px;
+    text-align: center;
+    color: rgb(129, 129, 129);
+    font-size: 20px !important;
+    cursor: pointer;
+  }
+  .img-count {
+    font-size: 11px;
+    height: 19px;
+    width: 19px;
+    margin: 0 12px 0 12px;
+  }
+} ;

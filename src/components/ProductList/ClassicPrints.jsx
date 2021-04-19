@@ -2,10 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ClassicPrintsData } from "./ClassicPrintsData";
 import "./ClassicPrints.css";
+import { useDispatch } from "react-redux";
+import { updateSelectedSize } from "./../../actions";
 
-const ClassicPrints = (props) => {
+const ClassicPrints = () => {
+  const dispatch = useDispatch();
+
   const handleDefaultSize = (el) => {
-    props.handleDefaultSize(el);
+    console.log(el, "el");
+    const newSize = [el.size, el.price, "Glossy"];
+    dispatch(updateSelectedSize(newSize));
   };
 
   return (

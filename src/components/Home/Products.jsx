@@ -57,9 +57,7 @@ const Products = (props) => {
           </ul>
         </header> */}
         <div className="products-container">
-          <ClassicPrints
-            handleDefaultSize={(el) => props.handleDefaultSize(el)}
-          />
+          <ClassicPrints />
         </div>
       </section>
     </>

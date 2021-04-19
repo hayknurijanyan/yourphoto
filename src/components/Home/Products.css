@@ -28,8 +28,8 @@
   /* background-color: aquamarine; */
   padding: 30px;
 }
-
-@media only screen and (max-width: 1200px) {
+/* 
+@media only screen and (max-width: 600px) {
   #products {
     padding: 4px;
     height: fit-content;
@@ -43,7 +43,7 @@
     font-weight: 500;
     cursor: pointer;
   }
-}
+} */
 
 @media only screen and (max-width: 1200px) {
   #products {

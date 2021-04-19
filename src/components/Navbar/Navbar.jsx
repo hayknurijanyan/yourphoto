@@ -4,8 +4,12 @@ import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
 import logo from "../../imgs/logo/logo.png";
 import { Link } from "react-router-dom";
+import * as Scroll from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { useSelector } from "react-redux";
 
-const Navbar = (props) => {
+const Navbar = () => {
+  const cart = useSelector((state) => state.cart);
   const [clicked, setClicked] = useState(false);
 
   function handleClickMenu() {
@@ -25,11 +29,16 @@ const Navbar = (props) => {
         {MenuItems.map((item, index) => {
           return (
             <li key={index}>
-              <a
+              <ScrollLink
+                activeClass="active"
+                spy={true}
+                smooth={true}
+                offset={-30}
+                duration={50}
                 className={clicked ? item.cName : "mobile-nav-links"}
-                href={item.url}>
+                to={item.url}>
                 {item.title}
-              </a>
+              </ScrollLink>
             </li>
           );
         })}
@@ -41,7 +50,7 @@ const Navbar = (props) => {
 
         <Link to="/cart">
           <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-          {props.cart != "0" && (
+          {cart.length != "0" && (
             <Badge
               pill
               variant="danger"
@@ -51,12 +60,12 @@ const Navbar = (props) => {
                 right: "91px",
                 top: "11px",
               }}>
-              {props.cart}
+              {cart.length}
             </Badge>
           )}
         </Link>
 
-        <Link to="profile">
+        <Link to="/profile">
           <i className="fa fa-user-circle" aria-hidden="true"></i>
         </Link>
       </div>

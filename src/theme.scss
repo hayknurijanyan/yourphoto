@@ -1,3 +1,8 @@
+$primary: #262935;
+$secondary: #262935;
+$succes: #228f46;
+$danger: #f73378;
+
 :root {
   --main: whitesmoke;
   --dark: #262935;
@@ -8,10 +13,5 @@
   --textDark: #262935;
   --textLight: whitesmoke;
 }
-
-$primary: #262935;
-$secondary: #262935;
-$succes: #228f46;
-$danger: #f73378;
 
 @import "~bootstrap/scss/bootstrap.scss";

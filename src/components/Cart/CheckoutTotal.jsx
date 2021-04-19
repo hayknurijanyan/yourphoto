@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const CheckoutTotal = (props) => {
+  const cart = useSelector((state) => state.cart);
+  const itemsSum = useSelector((state) => state.itemsSum);
+  const subtotal = useSelector((state) => state.subtotal);
+
   return (
     <div className="checkout-total-items">
       <div className="checkout-total-details">
         <div>
-          <span>items ({props.cart.length})</span>
-          <span>{props.itemsSum} AMD</span>
+          <span>items ({cart.length})</span>
+          <span>{itemsSum} AMD</span>
         </div>
         <div>
           <span>Delivery</span>
@@ -17,7 +22,7 @@ const CheckoutTotal = (props) => {
       </div>
       <div className="checkout-total-subtotal">
         <h4>Subtotal</h4>
-        <h4>{props.subtotal} AMD</h4>
+        <h4>{subtotal} AMD</h4>
       </div>
       <Link
         onClick={props.handleSubmitClick}

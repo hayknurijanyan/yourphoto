@@ -7,4 +7,19 @@
   /* width: 100%; */
   justify-content: center;
   height: fit-content;
+  /* background-color: rgb(241, 241, 241); */
+  border: 1px solid rgb(216, 216, 216);
+  padding: 10px;
+  border-radius: 6px;
 }
+
+@media only screen and (max-width: 830px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 140px));
+    grid-row-gap: 14px;
+    grid-column-gap: 16px;
+    justify-content: center;
+    height: fit-content;
+  }
+} ;

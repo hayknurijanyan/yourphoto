@@ -1,0 +1,25 @@
+.carousel-h3 {
+  font-size: 25px;
+  padding: 2px;
+}
+.carousel-p {
+  font-size: 14px;
+  padding: 2px;
+}
+.slide {
+  height: 680px;
+}
+@media only screen and (max-width: 800px) {
+  .carousel-h3 {
+    font-size: 15px;
+    padding: 2px;
+  }
+  .carousel-p {
+    font-size: 14px;
+    padding: 2px;
+  }
+
+  .slide {
+    height: 550px;
+  }
+}

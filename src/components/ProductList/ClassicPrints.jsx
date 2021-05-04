@@ -9,7 +9,6 @@ const ClassicPrints = () => {
   const dispatch = useDispatch();
 
   const handleDefaultSize = (el) => {
-    console.log(el, "el");
     const newSize = [el.size, el.price, "Glossy"];
     dispatch(updateSelectedSize(newSize));
   };

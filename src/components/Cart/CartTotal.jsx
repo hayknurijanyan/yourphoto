@@ -6,11 +6,11 @@ const CartTotal = (props) => {
   return (
     <div className="cart-total-items">
       <Link to="cart/checkout" className="cart-total-button">
-        <Button variant="danger">Go To Chekckout</Button>
+        <Button variant="danger">Go To Checkout</Button>
       </Link>
       <div className="cart-total-details">
         <div>
-          <span>items ({props.cart.length})</span>
+          <span>Cart items ({props.cart.length})</span>
           <span>{props.itemsSum} AMD</span>
         </div>
         <div>

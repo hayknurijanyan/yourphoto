@@ -151,7 +151,7 @@
   .right-buttons {
     display: flex;
     flex-direction: column-reverse;
-    width: 100px;
+    width: 110px;
     margin: 20px 0;
   }
   .left-buttons Button {
@@ -164,7 +164,7 @@
   .left-buttons {
     display: flex;
     flex-direction: column;
-    width: 100px;
+    width: 110px;
   }
 
   .main-quantity {

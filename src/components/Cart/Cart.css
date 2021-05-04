@@ -191,7 +191,30 @@
   align-items: center;
 }
 
+.order-completed-header {
+  color: grey;
+  align-self: center;
+  margin: 10px 0px;
+  font-size: 35px;
+}
+
+.order-completed-text {
+  color: grey;
+  align-self: center;
+  margin: 10px 0px;
+  font-size: 22px;
+}
+
 @media only screen and (max-width: 830px) {
+  .checkout-total-items Button {
+    position: fixed;
+
+    bottom: 0;
+    left: 4%;
+    width: 92%;
+    height: 50px;
+    margin: 10px 0;
+  }
   .cart-container {
     padding: 10px;
     display: flex;
@@ -231,5 +254,12 @@
     width: 100px;
     height: 100px;
     object-fit: contain;
+  }
+  .order-completed-header {
+    font-size: 23px;
+  }
+
+  .order-completed-text {
+    font-size: 18px;
   }
 } ;

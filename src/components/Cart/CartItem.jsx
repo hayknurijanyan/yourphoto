@@ -15,7 +15,6 @@ const CartItem = (props) => {
             </div>
           </div>
           <div className="cart-item-buttons">
-            {/* <div>Edit</div> */}
             <div onClick={props.handleDeleteCartItem}>
               <i
                 className="fa fa-trash"
@@ -34,6 +33,11 @@ const CartItem = (props) => {
         </div>
       </>
     );
+};
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart,
+  };
 };
 
 export default CartItem;

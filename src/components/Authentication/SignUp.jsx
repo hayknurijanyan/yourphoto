@@ -1,9 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Card, Form, Button, Container, Alert } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { signIn } from "../../actions";
+import { db } from "../../firebase";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -38,6 +42,21 @@ const SignUp = () => {
         .catch(function (error) {
           console.log(error);
         });
+
+      db.collection("users").doc(response.user.uid).set({
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        id: response.user.uid,
+        address: "",
+        receiver_name: "",
+        receiver_lastname: "",
+        phone: "",
+        city: "",
+        state: "",
+        zip: "",
+      });
+
+      dispatch(signIn());
 
       history.push("/");
     } catch {

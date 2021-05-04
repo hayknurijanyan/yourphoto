@@ -19,6 +19,11 @@ export function AuthProvider({ children }) {
     return auth.signInWithEmailAndPassword(email, password);
   }
 
+  function loginAsGuest() {
+    return auth.signInAnonymously();
+  }
+  console.log(currentUser, "user1");
+
   function logout() {
     return auth.signOut();
   }
@@ -28,6 +33,7 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
+    console.log("run");
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       setLoading(false);
@@ -41,6 +47,7 @@ export function AuthProvider({ children }) {
     signup,
     resetPassword,
     logout,
+    loginAsGuest,
   };
 
   return (

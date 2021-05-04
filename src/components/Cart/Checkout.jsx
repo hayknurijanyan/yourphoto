@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Col } from "react-bootstrap";
 // import PaymentForm from "./PaymentForm";
 // import ShippingForm from "./ShippingForm";
@@ -6,10 +6,40 @@ import CheckoutTotal from "./CheckoutTotal";
 import ProgressModal from "./ProgressModal";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
+import { db, storageRef } from "../../firebase";
+import { v4 as uuidv4 } from "uuid";
+import { clearCart } from "../../actions";
+import { useAuth } from "../../contexts/AuthContext";
+import ErrorModal from "../Errors/errorModal";
+import axios from "axios";
 
 const Checkout = (props) => {
+  const dispatch = useDispatch();
+  const subtotal = useSelector((state) => state.subtotal);
+  const { currentUser, loginAsGuest } = useAuth();
+  const cart = useSelector((state) => state.cart);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  let [progress, setProgress] = useState(0);
+  let [cartImagesCount, setCartImagesCount] = useState(0);
   const [modalShow, setModalShow] = useState(false);
+
   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
+
+  const handleCloseError = () => setShowErrorModal(false);
+  const handleShowError = () => setShowErrorModal(true);
+
+  useEffect(() => {
+    let sum = 0;
+    function count() {
+      cart.forEach((el) => {
+        sum += el.images.length;
+      });
+      setCartImagesCount(sum);
+    }
+    count();
+  }, []);
 
   const schema = yup.object().shape({
     firstName: yup
@@ -31,19 +61,120 @@ const Checkout = (props) => {
     saveAddress: yup.bool(),
   });
 
-  const handleSubmitClick = (touched) => {
-    if (props.cart.length > 0) {
-      const shippingData = {
-        user_name: `${touched.firstName} ${touched.lastName}`,
-        user_phone: touched.phone,
-        user_address: touched.address,
-        user_zip: touched.zip,
-        user_city: touched.city,
-        user_state: touched.state,
-        saveAddress: touched.saveAddress,
-      };
-      props.submitOrder(shippingData);
-      setModalShow(true);
+  const orderDone = () => {
+    dispatch(clearCart());
+  };
+
+  const handleSubmitClick = async (touched) => {
+    let response;
+    if (currentUser === null) {
+      response = await loginAsGuest();
+    }
+
+    if (response || currentUser) {
+      if (cart.length > 0) {
+        const orderData = {
+          user_name: touched.firstName,
+          user_lastname: touched.lastName,
+          user_phone: touched.phone,
+          user_address: touched.address,
+          user_zip: touched.zip,
+          user_city: touched.city,
+          user_state: touched.state,
+          saveAddress: touched.saveAddress,
+          comment: touched.comment,
+          order_price: subtotal,
+        };
+
+        let date = new Date();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let day = date.getDate();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let newDate = `${year}-${month}-${day}-${hours}:${minutes}`;
+
+        setProgress(0);
+
+        let folderId = uuidv4();
+        let sum = 0;
+
+        try {
+          cart.forEach((cartItem) => {
+            cartItem.images.forEach(async (file) => {
+              let imgId = Math.floor(Math.random() * 100000);
+              let shortSize = cartItem.size.split(" ").join("");
+              let snapshot = await storageRef
+                .child(
+                  `orders/${newDate}-${folderId}/${file.count}_aspect_${shortSize}__${imgId}_${file.img.name}`
+                )
+                .put(file.img);
+
+              sum += 1;
+              let progress = Math.floor((sum / cartImagesCount) * 100);
+              setProgress(progress);
+
+              if (sum === cartImagesCount) {
+                try {
+                  let browserUrl =
+                    "https://console.firebase.google.com/u/0/project/yourphoto-app/storage/yourphoto-app.appspot.com/files~2Forders~";
+                  let url = await storageRef.child(
+                    `order/${newDate}-${folderId}`
+                  ).name;
+                  let downloadUrl = `${browserUrl}2F${url}`;
+
+                  await db
+                    .collection("orders")
+                    .doc(`${newDate}-${folderId}`)
+                    .set({
+                      ...orderData,
+                      browserPath: downloadUrl,
+                      storageName: url,
+                    });
+                  setModalShow(true);
+                  orderDone();
+
+                  const webhookUrl =
+                    "https://hooks.slack.com/services/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";
+
+                  const info = `#Name: ${orderData.user_name} ${orderData.user_lastname}
+#Phone: ${orderData.user_phone}
+#Address: ${orderData.user_city}, ${orderData.user_address}
+#Price: ${orderData.order_price} AMD (cash)
+#Comment: ${orderData.comment}
+${downloadUrl}`;
+                  const payload = `{"text":"${info}"}`;
+                  const data = payload;
+                  try {
+                    await axios.post(webhookUrl, data);
+                  } catch {
+                    alert(
+                      `ERROR: ${folderId}, Whoops, looks like something went wrong, for checking your order status please make a screenshot and call to 077540454`
+                    );
+                  }
+                } catch {
+                  setErrorMessage(
+                    "Error uploading files, please check your connection and try again"
+                  );
+                  handleShowError();
+                }
+              }
+            });
+          });
+        } catch (error) {
+          setErrorMessage("Failed to upload, please try again");
+          handleShowError();
+        }
+        setModalShow(true);
+      } else {
+        setErrorMessage(
+          "Cart is empty, please add items to your cart and try again."
+        );
+        handleShowError();
+      }
+    } else {
+      setErrorMessage("Can't create account, please try again.");
+      handleShowError();
     }
   };
 
@@ -83,18 +214,21 @@ const Checkout = (props) => {
                     <Col sm={10}>
                       <Form.Check
                         type="radio"
+                        defaultChecked="true"
                         label="Cash Payment"
                         name="formHorizontalRadios"
                         id="formHorizontalRadios1"
                       />
                       <Form.Check
                         type="radio"
+                        disabled={true}
                         label="Credit/Debit Card"
                         name="formHorizontalRadios"
                         id="formHorizontalRadios2"
                       />
                       <Form.Check
                         type="radio"
+                        disabled={true}
                         label="Pay With iDram"
                         name="formHorizontalRadios"
                         id="formHorizontalRadios3"
@@ -169,7 +303,7 @@ const Checkout = (props) => {
 
                   <Form.Row>
                     <Form.Group as={Col} controlId="validationFormik105">
-                      <Form.Label>City</Form.Label>
+                      <Form.Label>City*</Form.Label>
                       <Form.Control
                         type="text"
                         name="city"
@@ -246,9 +380,15 @@ const Checkout = (props) => {
 
             <div className="checkout-total">
               <ProgressModal
-                progress={props.progress}
+                progress={progress}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
+              />
+              <ErrorModal
+                handleCloseError={handleCloseError}
+                handleShowError={handleShowError}
+                errorMessage={errorMessage}
+                show={showErrorModal}
               />
               <CheckoutTotal
                 cart={props.cart}

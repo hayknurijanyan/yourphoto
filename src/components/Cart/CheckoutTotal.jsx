@@ -12,7 +12,7 @@ const CheckoutTotal = (props) => {
     <div className="checkout-total-items">
       <div className="checkout-total-details">
         <div>
-          <span>items ({cart.length})</span>
+          <span>Cart items ({cart.length})</span>
           <span>{itemsSum} AMD</span>
         </div>
         <div>
@@ -28,8 +28,12 @@ const CheckoutTotal = (props) => {
         onClick={props.handleSubmitClick}
         to="/cart/checkout"
         className="checkout-total-button">
-        <Button onClick={props.submitOrder} variant="danger" type="submit">
-          Confirm And Pay
+        <Button
+          className="submit-button"
+          onClick={props.submitOrder}
+          variant="danger"
+          type="submit">
+          Place Order
         </Button>
       </Link>
     </div>

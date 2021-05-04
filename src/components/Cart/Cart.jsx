@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CartItem from "./CartItem";
 import CartTotal from "./CartTotal";
 import "./Cart.css";
@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import cartImage from "./../../imgs/photos/icon-emptycart.png";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updateCart } from "./../../actions";
+import { updateCart, updateItemsSum, updateSubTotal } from "./../../actions";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -15,12 +15,25 @@ const Cart = () => {
   const subtotal = useSelector((state) => state.subtotal);
 
   const deleteCartItem = (id) => {
-    console.log(id);
     const filteredCart = cart.filter((cartItem) => {
       return cartItem.id !== id;
     });
     dispatch(updateCart(filteredCart));
   };
+
+  useEffect(() => {
+    const checkSum = () => {
+      let sum = 0;
+      let obj = { ...cart };
+      for (let key in obj) {
+        sum += obj[key].price;
+      }
+
+      dispatch(updateItemsSum(sum));
+      dispatch(updateSubTotal(sum));
+    };
+    checkSum();
+  }, [cart]);
 
   if (cart.length > 0) {
     return (

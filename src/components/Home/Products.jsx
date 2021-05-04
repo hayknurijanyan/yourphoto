@@ -23,20 +23,20 @@ const Products = (props) => {
     },
   ]);
 
-  const handleClick = (item) => {
-    let newList = [...productList];
-    newList.forEach((el) => {
-      return (el.active = false);
-    });
-    item.active = item.active === false ? true : true;
-    setProductList(newList);
-  };
+  // const handleClick = (item) => {
+  //   let newList = [...productList];
+  //   newList.forEach((el) => {
+  //     return (el.active = false);
+  //   });
+  //   item.active = item.active === false ? true : true;
+  //   setProductList(newList);
+  // };
 
-  const checkActiveStatus = (item) => {
-    return item.active === true
-      ? "products-list-item on-active"
-      : "products-list-item";
-  };
+  // const checkActiveStatus = (item) => {
+  //   return item.active === true
+  //     ? "products-list-item on-active"
+  //     : "products-list-item";
+  // };
 
   return (
     <>

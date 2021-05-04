@@ -7,6 +7,11 @@
   --textDark: #262935;
   --textLight: whitesmoke;
 }
+
+.text-link {
+  text-decoration: none !important;
+}
+
 .NavbarItems {
   position: fixed;
   z-index: 100;
@@ -23,6 +28,28 @@
   box-shadow: 0px 1px 8px 1px rgb(80, 80, 80);
 }
 
+.color {
+  color: #858585;
+}
+
+/* .signed-profile {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+  background-color: #262935;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+}
+.signed-profile span {
+  color: whitesmoke;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+} */
+
 .navbar-logo {
   display: flex;
   justify-content: flex-start;
@@ -37,6 +64,7 @@
   width: 10%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-right: 40px;
 }
 .navbar-icons i {
@@ -77,6 +105,12 @@
   margin-right: 4px;
   margin-bottom: 0;
 }
+.nav-cta-none {
+  display: none;
+}
+.nav-cta {
+  display: none;
+}
 
 .nav-links {
   color: var(--dark);
@@ -97,14 +131,24 @@
   cursor: pointer;
 }
 
-.nav-links:not(.cta):hover {
+.nav-links:hover {
   /* background-color: var(--secondary); */
-  border-bottom: 1px solid var(--textDark);
+  border-bottom: 2px solid var(--textDark) !important;
+  color: var(--dark);
+  cursor: pointer;
+}
+.mobile-nav-links:hover {
+  border-bottom: 2px solid var(--textDark) !important;
   color: var(--dark);
   cursor: pointer;
 }
 
 .bars {
+  color: var(--textDark);
+  cursor: pointer;
+  display: none !important;
+}
+.fa-times {
   color: var(--textDark);
   cursor: pointer;
   display: none !important;
@@ -133,17 +177,26 @@
     justify-content: center;
   }
 
-  .nav-links:not(.cta):hover {
+  .nav-cta {
+    color: var(--textLight);
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-cta:hover {
+    background-color: var(--secondary);
+    border-bottom: none;
+    color: var(--textLight);
+    background-color: #df115c;
+  }
+
+  .nav-links:hover {
     background-color: var(--secondary);
     border-bottom: none;
     color: var(--textLight);
     background-color: #f73378;
-  }
-  .cta {
-    display: none !important;
-  }
-  .cta-mobile {
-    display: flex;
   }
 
   .bars {
@@ -237,5 +290,13 @@
   }
   .fa-home {
     display: none !important;
+  }
+
+  .fa-times {
+    display: block !important;
+    margin-right: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 26px !important;
   }
 } ;

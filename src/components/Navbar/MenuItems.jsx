@@ -6,37 +6,37 @@ export const MenuItems = [
   // },
   {
     title: "Products",
-    url: "products",
+    url: "/#products",
     cName: "nav-links",
   },
   {
     title: "Ideas",
-    url: "ideas",
+    url: "/#ideas",
     cName: "nav-links",
   },
   {
     title: "App",
-    url: "app-download",
+    url: "/#app-download",
     cName: "nav-links",
   },
   {
     title: "How To Use",
-    url: "key-features",
+    url: "/#key-features",
     cName: "nav-links",
   },
   {
     title: "Delivery",
-    url: "delivery",
+    url: "/#delivery",
     cName: "nav-links",
   },
   {
     title: "About Us",
-    url: "about",
+    url: "/#about",
     cName: "nav-links",
   },
   {
     title: "Contacts",
-    url: "contact",
+    url: "/#contact",
     cName: "nav-links",
   },
 ];

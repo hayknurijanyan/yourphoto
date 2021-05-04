@@ -12,10 +12,10 @@ function AddToCartModal(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered>
         <Modal.Header closeButton>
-          <h6>All photos has been deleted from your cart</h6>
+          <h6>All photos has been deleted</h6>
         </Modal.Header>
         <Modal.Body>
-          <h5>Cart is Empty</h5>
+          <h5>Cart is empty</h5>
         </Modal.Body>
         <Modal.Footer>
           <Link to="/order">
@@ -32,7 +32,7 @@ function AddToCartModal(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered>
         <Modal.Header closeButton>
-          <h6>All photos are successfully added to cart </h6>
+          <h6>Selected photos are successfully added to cart </h6>
           <i
             className="fa fa-check-circle"
             aria-hidden="true"
@@ -47,14 +47,14 @@ function AddToCartModal(props) {
             }
           />
         </Modal.Body>
-        <Modal.Footer>
-          <Link to="/cart">
-            <Button onClick={props.handleGoToCart}>Go to cart</Button>
-          </Link>
+        <Modal.Footer className="d-flex justify-content-between">
+          <Button className="ml-2" onClick={props.onHide}>
+            Back
+          </Button>
 
-          <Link to="/cart/checkout">
-            <Button variant="danger" onClick={props.handleCheckoutClick}>
-              Checkout
+          <Link to="/cart">
+            <Button variant="danger" onClick={props.handleGoToCart}>
+              Go to cart
             </Button>
           </Link>
         </Modal.Footer>

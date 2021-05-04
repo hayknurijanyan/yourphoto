@@ -39,21 +39,6 @@ function Order(props) {
     }
   }, []);
 
-  useEffect(() => {
-    const checkSum = () => {
-      let sum = 0;
-      let obj = { ...cart };
-      for (let key in obj) {
-        sum += obj[key].price;
-      }
-
-      dispatch(updateItemsSum(sum));
-      dispatch(updateSubTotal(sum));
-    };
-
-    checkSum();
-  }, [cart]);
-
   const handleFileInput = (e) => {
     let uploads = [];
     let newImages = [...images];
@@ -149,6 +134,8 @@ function Order(props) {
     const filteredCart = cart.filter((cartItem) => {
       return cartItem.id !== id;
     });
+    console.log("clicked");
+
     dispatch(updateCart(filteredCart));
   };
 

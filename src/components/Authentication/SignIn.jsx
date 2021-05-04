@@ -1,29 +1,40 @@
 import React, { useRef, useState } from "react";
 import { Card, Form, Button, Container, Alert } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { signIn } from "../../actions";
 
 const SignIn = () => {
+  const dispatch = useDispatch();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  const { login, loginAsGuest } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      const user = await login(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
       history.push("/");
+      dispatch(signIn());
     } catch {
       setError("Failed to sign in");
     }
     setLoading(false);
   }
+
+  const guestSignIn = async () => {
+    await loginAsGuest();
+    history.push("/");
+  };
 
   return (
     <>
@@ -56,11 +67,18 @@ const SignIn = () => {
                   </Link>
                 </div>
                 <Button
-                  className="w-100 mt-4"
+                  className="w-100 mt-3"
                   type="submit"
                   variant="danger"
                   disabled={loading}>
                   Log In
+                </Button>
+                <Button
+                  className="w-100 mt-3 mb-2"
+                  onClick={guestSignIn}
+                  variant="primary"
+                  disabled={loading}>
+                  Continue as a guest
                 </Button>
               </Form>
             </Card.Body>

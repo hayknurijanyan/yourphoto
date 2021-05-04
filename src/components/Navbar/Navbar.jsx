@@ -4,13 +4,18 @@ import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
 import logo from "../../imgs/logo/logo.png";
 import { Link } from "react-router-dom";
-import * as Scroll from "react-scroll";
-import { Link as ScrollLink } from "react-scroll";
+// import * as Scroll from "react-scroll";
+// import { Link as ScrollLink } from "react-scroll";
 import { useSelector } from "react-redux";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Navbar = () => {
   const cart = useSelector((state) => state.cart);
+  const { currentUser } = useAuth();
   const [clicked, setClicked] = useState(false);
+  const profileColor = currentUser
+    ? "fa fa-user-circle"
+    : "fa fa-user-circle color";
 
   function handleClickMenu() {
     setClicked(!clicked);
@@ -28,20 +33,27 @@ const Navbar = () => {
       <ul className={clicked ? "navbar-menu open" : "navbar-menu"}>
         {MenuItems.map((item, index) => {
           return (
-            <li key={index}>
-              <ScrollLink
+            <li key={index} onClick={() => setClicked(false)}>
+              <a
                 activeClass="active"
                 spy={true}
                 smooth={true}
                 offset={-30}
                 duration={50}
                 className={clicked ? item.cName : "mobile-nav-links"}
-                to={item.url}>
+                href={item.url}>
                 {item.title}
-              </ScrollLink>
+              </a>
             </li>
           );
         })}
+        <Link className="text-link" to="/order">
+          <li
+            onClick={() => setClicked(false)}
+            className={clicked ? "nav-cta" : "nav-cta-none"}>
+            Order Now
+          </li>
+        </Link>
       </ul>
       <div className="navbar-icons">
         <Link to="/" onClick={() => window.scrollTo(0, 0)}>
@@ -64,15 +76,30 @@ const Navbar = () => {
             </Badge>
           )}
         </Link>
+        {/* {currentUser && (
+          <Link to="/profile">
+            <div className="signed-profile">
+              <span>{String(currentUser.displayName).charAt(0)}</span>
+            </div>
+          </Link>
+        )} */}
 
         <Link to="/profile">
-          <i className="fa fa-user-circle" aria-hidden="true"></i>
+          <i className={profileColor} aria-hidden="true"></i>
         </Link>
       </div>
-      <i
-        onClick={handleClickMenu}
-        className="fa fa-bars bars"
-        aria-hidden="true"></i>
+      {clicked && (
+        <i
+          onClick={handleClickMenu}
+          className="fa fa-times"
+          aria-hidden="true"></i>
+      )}
+      {!clicked && (
+        <i
+          onClick={handleClickMenu}
+          className="fa fa-bars bars"
+          aria-hidden="true"></i>
+      )}
     </nav>
   );
 };

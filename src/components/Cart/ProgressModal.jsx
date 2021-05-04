@@ -11,7 +11,7 @@ function ProgressModal(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered>
         <Modal.Header closeButton>
-          <h6>Please wait a moment, we are uploading your photos...</h6>
+          <h6>Please wait a moment, photos are being uploaded...</h6>
         </Modal.Header>
         <Modal.Body className="d-flex justify-content-center flex-column">
           <ProgressBar
@@ -23,8 +23,8 @@ function ProgressModal(props) {
           </h6>
         </Modal.Body>
         <Modal.Footer>
-          <Button>Pause</Button>
-          <Button>Cancel</Button>
+          {/* <Button>Pause</Button> */}
+          <Button onClick={props.onHide}>Hide</Button>
           {/* <Button>Continue</Button> */}
         </Modal.Footer>
       </Modal>
@@ -45,9 +45,12 @@ function ProgressModal(props) {
             style={{ color: "green", marginLeft: "3px" }}></i>
         </Modal.Header>
         <Modal.Body className="d-flex justify-content-center flex-column">
-          <h4
-            style={{ color: "grey", alignSelf: "center", margin: "60px 0px" }}>
-            Thank You! your order has been placed
+          <h4 className="order-completed-header">
+            Thank You!
+            {/* Շնորհակալություն Պատվերն Ընդունված է */}
+          </h4>
+          <h4 className="order-completed-text">
+            Your order has been placed.
             {/* Շնորհակալություն Պատվերն Ընդունված է */}
           </h4>
         </Modal.Body>
@@ -66,7 +69,7 @@ function ProgressModal(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered>
         <Modal.Header closeButton>
-          <h6>Please wait a moment, we are uploading your photos...</h6>
+          <h6>Please wait a moment, while photos are being uploaded...</h6>
         </Modal.Header>
         <Modal.Body className="d-flex justify-content-center flex-column">
           <ProgressBar

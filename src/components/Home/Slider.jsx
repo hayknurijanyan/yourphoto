@@ -30,7 +30,7 @@ const Slider = () => {
           }}>
           <h3 className="carousel-h3">Capture The Moment</h3>
           <p className="carousel-p">
-            Share best moments with your family and friends.
+            Share the best moments with your family and friends.
           </p>
           <Link to="/order">
             <Button variant="danger">Order Now</Button>
@@ -60,9 +60,9 @@ const Slider = () => {
           <p className="carousel-p">
             YourPhoto app is available on the App Store and Google Play Store.
           </p>
-          <a href="http://onelink.to/xgzgvs">
-            <Button variant="danger">Download App</Button>
-          </a>
+          <Link to="/order">
+            <Button variant="danger">Order Now</Button>
+          </Link>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -88,7 +88,7 @@ const Slider = () => {
             Create custom prints to make a unique photo collage for your wall.
           </p>
           <Link to="/order">
-            <Button variant="danger">Create</Button>
+            <Button variant="danger">Order Now</Button>
           </Link>
         </Carousel.Caption>
       </Carousel.Item>

@@ -14,7 +14,7 @@ export const ClassicPrintsData = [
   {
     title: "Standard",
     size: "10 x 15",
-    price: 60,
+    price: 70,
     cName: "box3",
   },
   {

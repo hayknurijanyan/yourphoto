@@ -135,13 +135,15 @@ const Checkout = (props) => {
                   orderDone();
 
                   const webhookUrl =
-                    "https://hooks.slack.com/services/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";
+                    process.env.REACT_APP_SLACK_APP_WEBHOOK_URL;
 
-                  const info = `#Name: ${orderData.user_name} ${orderData.user_lastname}
-#Phone: ${orderData.user_phone}
-#Address: ${orderData.user_city}, ${orderData.user_address}
-#Price: ${orderData.order_price} AMD (cash)
-#Comment: ${orderData.comment}
+                  const info = `
+:date: *Date*: ${newDate}          
+:raising_hand: *Name*: ${orderData.user_name} ${orderData.user_lastname}
+:phone: *Phone*: ${orderData.user_phone}
+:house: *Address*: ${orderData.user_city}, ${orderData.user_address}
+:moneybag: *Price*: ${orderData.order_price} AMD (cash)
+:memo: *Comment*: ${orderData.comment}
 ${downloadUrl}`;
                   const payload = `{"text":"${info}"}`;
                   const data = payload;

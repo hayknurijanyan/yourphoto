@@ -18,7 +18,12 @@
 
 .key-feature img {
   width: 250px;
+  /* transition: transform 0.2s; */
 }
+
+/* .key-feature img:hover {
+  transition: scale(1.1);
+} */
 
 .key-feature h3 {
   color: whitesmoke;
@@ -30,8 +35,9 @@
 .key-feature p {
   color: whitesmoke;
   text-align: center;
-  width: 260px;
+  width: 270px;
   font-weight: 300;
+  font-size: 15px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -50,8 +56,7 @@
   }
   .key-feature p {
     width: 250px;
-    font-weight: 300;
-    font-size: 13px;
+    font-size: 12px;
     margin-bottom: 42px;
   }
 }
@@ -85,9 +90,6 @@
   .key-feature p {
     color: whitesmoke;
     text-align: center;
-    width: 250px;
-    font-weight: 300;
-    font-size: 12px;
-    margin-bottom: 42px;
+    font-size: 11px;
   }
 }

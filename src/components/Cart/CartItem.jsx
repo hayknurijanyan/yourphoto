@@ -15,7 +15,7 @@ const CartItem = (props) => {
             </div>
           </div>
           <div className="cart-item-buttons">
-            <div onClick={props.handleDeleteCartItem}>
+            <div onClick={props.deletecartitem}>
               <i
                 className="fa fa-trash"
                 aria-hidden="true"

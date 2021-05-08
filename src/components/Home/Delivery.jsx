@@ -12,18 +12,18 @@ const Delivery = () => {
         <figcaption>
           <h3>Process</h3>
           <p>
-            Once we receive your order, it takes us a few days to make it just
-            right for you. Because every order is custom, it can take up to 2
-            business days to process your order. Next, we send orders out for
-            shipping. It can take up to 7 days after processing to receive your
-            order, depending on the shipping method you select. YourPhoto offers
-            four convenient ways to ship your order: standard, ground, 2-day,
-            and overnight. Details on these options can be found here.
+            Once we receive your order, it takes us a few days to prepare it.
+            Because every order is custom, it may take few days to process your
+            order. Next, we send orders out for delivery. In Yerevan it may take
+            2-3 days for your order to be delivered. The delivery service costs
+            500 AMD. For faster delivery, please talk to a representative in
+            advance, before submitting your order. The cost for faster delivery
+            may vary.
             <br />
             <br />
-            Do you need your order today? Select items like prints, photo paper
-            cards, and calendars can be picked up in-store at a retailer near
-            you. Shop items you can pick up in store.
+            For the orders from Armenian provinces we use "HayPost" services to
+            deliver the order. It may take up to 7 days after the processing to
+            receive your order.
           </p>
         </figcaption>
       </figure>

@@ -35,9 +35,9 @@ const Navbar = () => {
           return (
             <li key={index} onClick={() => setClicked(false)}>
               <a
-                activeClass="active"
-                spy={true}
-                smooth={true}
+                activeclass="active"
+                spy="true"
+                smooth="true"
                 offset={-30}
                 duration={50}
                 className={clicked ? item.cName : "mobile-nav-links"}

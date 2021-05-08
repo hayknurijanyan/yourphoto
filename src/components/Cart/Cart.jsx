@@ -44,7 +44,7 @@ const Cart = () => {
               <CartItem
                 key={i}
                 items={el}
-                handleDeleteCartItem={() => deleteCartItem(el.id)}
+                deletecartitem={() => deleteCartItem(el.id)}
               />
             );
           })}

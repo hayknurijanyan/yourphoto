@@ -11,6 +11,7 @@
 .delivery-container img {
   padding: 30px;
   height: 360px;
+  border-radius: 2px;
 }
 
 .delivery-container h3 {

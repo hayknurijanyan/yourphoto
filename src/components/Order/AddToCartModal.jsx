@@ -42,9 +42,7 @@ function AddToCartModal(props) {
           <p>You can edit or delete photos before purchasing.</p>
           <CartItem
             items={props.items[0]}
-            handleDeleteCartItem={() =>
-              props.handleDeleteCartItem(props.items[0].id)
-            }
+            deletecartitem={() => props.deletecartitem(props.items[0].id)}
           />
         </Modal.Body>
         <Modal.Footer className="d-flex justify-content-between">

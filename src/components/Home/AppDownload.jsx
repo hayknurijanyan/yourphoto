@@ -10,7 +10,7 @@ const AppDownload = () => {
     <>
       <section id="app-download">
         <article className="app-download-article">
-          <h5>4.9 STARS AND OVER 5K REVIEWS</h5>
+          <h5>4.7 STARS AND OVER 5K DOWNLOADS</h5>
           <h1>
             Print photos from your <br /> Instagram or camera roll.
           </h1>

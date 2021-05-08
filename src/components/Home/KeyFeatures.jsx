@@ -14,24 +14,26 @@ const KeyFeatures = () => {
           <img src={svg1} alt="" />
           <h3>Choose your product</h3>
           <p>
-            Photo Books for grandparents. Dedicated mugs for everyone in the
-            family. Canvas Prints to show off your holidays. Take your pick.
+            Classic prints for every occasion. Custom prints for special ones.
+            Decorative frames for emphasizing special moments. Stickers for
+            journal decorations & more.
           </p>
         </div>
         <div className="key-feature">
           <img src={svg2} alt="" />
           <h3>Personalise it!</h3>
           <p>
-            Upload photos from your phone - most smartphones take such great
-            quality shots - and customise your gift with colours, text, filters.
+            Upload your photos easily to our website. Mobile uploads are also
+            acceptable. Customize your orders with special tools. Make great
+            gifts for your friends and family.
           </p>
         </div>
         <div className="key-feature">
           <img src={svg3} alt="" />
           <h3>Delivered to you direct</h3>
           <p>
-            With a choice of delivery options available, your gift can be with
-            you in no time.
+            With an instant order and fast delivery save your time and enjoy
+            your orders. Now available for Armenian provinces as well.
           </p>
         </div>
       </div>

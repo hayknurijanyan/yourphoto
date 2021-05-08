@@ -50,7 +50,7 @@ const Contact = () => {
           </div>
           <div className="contact-detail-item">
             <i className="fa fa-envelope-o" aria-hidden="true"></i>
-            <span className="mark">Email: yourphotoprints@gmail.com</span>
+            <span>Email: yourphotoprints@gmail.com</span>
           </div>
 
           <h3>Working Hours</h3>

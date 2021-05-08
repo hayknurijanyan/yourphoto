@@ -164,7 +164,7 @@ function Order(props) {
             </DropdownButton>
 
             <AddToCartModal
-              handleDeleteCartItem={(id) => deleteCartItem(id)}
+              deletecartitem={(id) => deleteCartItem(id)}
               items={cart}
               handleAddToCart={addToCart}
               handleGoToCart={goToCart}
@@ -207,7 +207,7 @@ function Order(props) {
             height: "fit-content",
           }}>
           <Card className="text-center">
-            <Card.Header>Everything starts from here!</Card.Header>
+            <Card.Header className="p-3"></Card.Header>
             <Card.Body>
               <Card.Title>Upload photos to start</Card.Title>
               <Card.Text>

@@ -17,6 +17,12 @@
 
 .app-img {
   height: 500px;
+  /* cursor: pointer; */
+  transition: transform 0.2s; /* Animation */
+}
+
+.app-img:hover {
+  transform: scale(1.1);
 }
 
 .app-download-article h1 {
@@ -35,8 +41,11 @@
 .app-download-article-icons img {
   margin: 0 20px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
-
+.app-download-article-icons img:hover {
+  transform: scale(1.1);
+}
 @media only screen and (max-width: 1200px) {
   .app-download-article-icons img {
     width: 120px;

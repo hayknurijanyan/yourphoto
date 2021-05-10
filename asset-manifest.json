@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/yourphoto/static/css/main.0eb3a57d.chunk.css",
+    "main.js": "/yourphoto/static/js/main.db14788a.chunk.js",
+    "main.js.map": "/yourphoto/static/js/main.db14788a.chunk.js.map",
+    "runtime-main.js": "/yourphoto/static/js/runtime-main.8381c8b2.js",
+    "runtime-main.js.map": "/yourphoto/static/js/runtime-main.8381c8b2.js.map",
+    "static/css/2.162d4608.chunk.css": "/yourphoto/static/css/2.162d4608.chunk.css",
+    "static/js/2.58e6137e.chunk.js": "/yourphoto/static/js/2.58e6137e.chunk.js",
+    "static/js/2.58e6137e.chunk.js.map": "/yourphoto/static/js/2.58e6137e.chunk.js.map",
+    "static/js/3.118f54fe.chunk.js": "/yourphoto/static/js/3.118f54fe.chunk.js",
+    "static/js/3.118f54fe.chunk.js.map": "/yourphoto/static/js/3.118f54fe.chunk.js.map",
+    "index.html": "/yourphoto/index.html",
+    "static/css/2.162d4608.chunk.css.map": "/yourphoto/static/css/2.162d4608.chunk.css.map",
+    "static/css/main.0eb3a57d.chunk.css.map": "/yourphoto/static/css/main.0eb3a57d.chunk.css.map",
+    "static/js/2.58e6137e.chunk.js.LICENSE.txt": "/yourphoto/static/js/2.58e6137e.chunk.js.LICENSE.txt",
+    "static/media/Ideas.css": "/yourphoto/static/media/3.ba107e26.jpg",
+    "static/media/1.dd7dc3f9.jpg": "/yourphoto/static/media/1.dd7dc3f9.jpg",
+    "static/media/1.eedca7b3.svg": "/yourphoto/static/media/1.eedca7b3.svg",
+    "static/media/2.03bec972.jpg": "/yourphoto/static/media/2.03bec972.jpg",
+    "static/media/2.2ad0de3b.svg": "/yourphoto/static/media/2.2ad0de3b.svg",
+    "static/media/3.679ff61c.jpg": "/yourphoto/static/media/3.679ff61c.jpg",
+    "static/media/3.d408713b.svg": "/yourphoto/static/media/3.d408713b.svg",
+    "static/media/ClassicPrints.css": "/yourphoto/static/media/standard.da2c6c4b.JPG",
+    "static/media/about.91182d17.jpg": "/yourphoto/static/media/about.91182d17.jpg",
+    "static/media/app.f22340df.png": "/yourphoto/static/media/app.f22340df.png",
+    "static/media/appstore.8757e892.png": "/yourphoto/static/media/appstore.8757e892.png",
+    "static/media/delivery.88887c14.jpg": "/yourphoto/static/media/delivery.88887c14.jpg",
+    "static/media/font-awesome.min.css": "/yourphoto/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/icon-emptycart.6c939c02.png": "/yourphoto/static/media/icon-emptycart.6c939c02.png",
+    "static/media/logo.92ed2bc0.png": "/yourphoto/static/media/logo.92ed2bc0.png",
+    "static/media/pay3.c1d96370.png": "/yourphoto/static/media/pay3.c1d96370.png",
+    "static/media/playstore.53ab241b.png": "/yourphoto/static/media/playstore.53ab241b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8381c8b2.js",
+    "static/css/2.162d4608.chunk.css",
+    "static/js/2.58e6137e.chunk.js",
+    "static/css/main.0eb3a57d.chunk.css",
+    "static/js/main.db14788a.chunk.js"
+  ]
+}

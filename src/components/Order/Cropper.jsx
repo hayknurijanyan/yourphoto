@@ -19,12 +19,10 @@ class Cropper extends Component {
     this.setState({ crop: crop });
   };
 
-  handleImageLoaded = (image) => {
-    console.log(image);
-  };
+  handleImageLoaded = (image) => {};
 
   handleOnComplete = (crop, pixelCrop) => {
-    console.log(crop, pixelCrop);
+    // console.log(crop, pixelCrop);
   };
 
   render() {

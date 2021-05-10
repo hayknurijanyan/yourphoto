@@ -13,6 +13,7 @@ import { clearCart } from "../../actions";
 import { useAuth } from "../../contexts/AuthContext";
 import ErrorModal from "../Errors/errorModal";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Checkout = (props) => {
   const dispatch = useDispatch();
@@ -150,8 +151,17 @@ ${downloadUrl}`;
                   try {
                     await axios.post(webhookUrl, data);
                   } catch {
-                    alert(
-                      `ERROR: ${folderId}, Whoops, looks like something went wrong, for checking your order status please make a screenshot and call to 077540454`
+                    toast.error(
+                      `ERROR: ${folderId}, Whoops! looks like something went wrong, for checking your order status please make a screenshot and call to 077540454`,
+                      {
+                        position: "top-right",
+                        autoClose: 30000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                      }
                     );
                   }
                 } catch {
@@ -368,6 +378,7 @@ ${downloadUrl}`;
 
                   <Form.Group controlId="validationFormik109">
                     <Form.Check
+                      disabled
                       name="saveAddress"
                       value={values.saveAddress}
                       onChange={handleChange}

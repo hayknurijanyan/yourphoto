@@ -17,7 +17,6 @@ const ForgotPassword = () => {
       setMessage("");
       setError("");
       setLoading(true);
-      console.log(emailRef.current.value);
       await resetPassword(emailRef.current.value);
       setMessage("Reset mail sent, please check your email");
     } catch {

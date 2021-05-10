@@ -62,7 +62,7 @@ const Navbar = () => {
 
         <Link to="/cart">
           <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-          {cart.length != "0" && (
+          {cart.length !== 0 && (
             <Badge
               pill
               variant="danger"

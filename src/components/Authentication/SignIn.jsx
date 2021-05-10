@@ -19,12 +19,10 @@ const SignIn = () => {
     try {
       setError("");
       setLoading(true);
-      const user = await login(
-        emailRef.current.value,
-        passwordRef.current.value
-      );
+      await login(emailRef.current.value, passwordRef.current.value);
       history.push("/");
       dispatch(signIn());
+      // toast.success("Successfully logged in");
     } catch {
       setError("Failed to sign in");
     }

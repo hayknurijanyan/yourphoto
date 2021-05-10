@@ -20,25 +20,27 @@ const Footer = () => {
             <h3>Navigation</h3>
             <ul className="footer-nav-links">
               <li className="footer-nav-link">
-                <a href="#">Home</a>
+                <a href="/#">Home</a>
               </li>
               <li className="footer-nav-link">
-                <a href="#products">Products</a>
+                <a href="/#products">Products</a>
               </li>
               <li className="footer-nav-link">
                 <a
                   href="https://www.facebook.com/yourphotoprinting/reviews"
-                  target="_blank">
+                  target="_blank"
+                  rel="noreferrer">
                   Reviews
                 </a>
               </li>
               <li className="footer-nav-link">
-                <a href="#about">About Us</a>
+                <a href="/#about">About Us</a>
               </li>
               <li className="footer-nav-link">
                 <a
                   href="https://tawk.to/chat/5c59946a6cb1ff3c14cb321a/1eu1ga0pk"
-                  target="_blank">
+                  target="_blank"
+                  rel="noreferrer">
                   Live chat
                 </a>
               </li>
@@ -55,28 +57,40 @@ const Footer = () => {
               <span>yourphotoprints@gmail.com</span>
             </div>
             <div className="footer-icon-social">
-              <a href="http://onelink.to/xgzgvs" target="_blank">
+              <a
+                href="http://onelink.to/xgzgvs"
+                target="_blank"
+                rel="noreferrer">
                 <i className="fa fa-apple" aria-hidden="true"></i>
               </a>
-              <a href="http://onelink.to/xgzgvs" target="_blank">
+              <a
+                href="http://onelink.to/xgzgvs"
+                target="_blank"
+                rel="noreferrer">
                 <i className="fa fa-android" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.facebook.com/yourphotoprinting"
-                target="_blank">
+                target="_blank"
+                rel="noreferrer">
                 <i className="fa fa-facebook-square" aria-hidden="true"></i>
               </a>
-              <a href="http://instagram.com/yourphoto.am" target="_blank">
+              <a
+                href="http://instagram.com/yourphoto.am"
+                target="_blank"
+                rel="noreferrer">
                 <i className="fa fa-instagram" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.youtube.com/channel/UCX3Y2Zgd3lS-mNnG0nUdPKA"
-                target="_blank">
+                target="_blank"
+                rel="noreferrer">
                 <i className="fa fa-youtube-play" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.google.com/maps/place/YourPhoto+(Online+Print)+Studio/@40.1947369,44.471829,11z/data=!4m5!3m4!1s0x406abd64e868a1b1:0xea8207e999beb7e9!8m2!3d40.2021712!4d44.4760555"
-                target="_blank">
+                target="_blank"
+                rel="noreferrer">
                 <i className="fa fa-google-plus-square" aria-hidden="true"></i>
               </a>
             </div>

@@ -17,7 +17,7 @@ const Profile = () => {
     setError("");
 
     try {
-      let response = await logout();
+      await logout();
       dispatch(signOut());
       history.push("/signin");
     } catch {

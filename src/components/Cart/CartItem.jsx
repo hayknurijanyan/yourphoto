@@ -6,7 +6,7 @@ const CartItem = (props) => {
       <>
         <div className="cart-item">
           <div className="cart-item-main">
-            <img src={props.items.images[0].imgSrc} alt="Preview Image" />
+            <img src={props.items.images[0].imgSrc} alt="Preview" />
             <div className="cart-item-details">
               <div>Classic Prints</div>
               <div>{props.items.size}</div>
@@ -34,10 +34,10 @@ const CartItem = (props) => {
       </>
     );
 };
-const mapStateToProps = (state) => {
-  return {
-    cart: state.cart,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     cart: state.cart,
+//   };
+// };
 
 export default CartItem;

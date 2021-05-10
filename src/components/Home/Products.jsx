@@ -1,27 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Products.css";
 import "./@Shared.css";
 import ClassicPrints from "../ProductList/ClassicPrints";
 
-const Products = (props) => {
-  const [productList, setProductList] = useState([
-    {
-      title: "CLASSIC PRINTS",
-      active: true,
-    },
-    {
-      title: "SPECIAL PRINTS",
-      active: false,
-    },
-    {
-      title: "COLLAGE",
-      active: false,
-    },
-    {
-      title: "SEE ALL >",
-      active: false,
-    },
-  ]);
+const Products = () => {
+  // const [productList, setProductList] = useState([
+  //   {
+  //     title: "CLASSIC PRINTS",
+  //     active: true,
+  //   },
+  //   {
+  //     title: "SPECIAL PRINTS",
+  //     active: false,
+  //   },
+  //   {
+  //     title: "COLLAGE",
+  //     active: false,
+  //   },
+  //   {
+  //     title: "SEE ALL >",
+  //     active: false,
+  //   },
+  // ]);
 
   // const handleClick = (item) => {
   //   let newList = [...productList];

@@ -11,8 +11,8 @@ import {
   updateSelectedSize,
   updateImages,
   updateImagesCount,
-  updateItemsSum,
-  updateSubTotal,
+  // updateItemsSum,
+  // updateSubTotal,
   clearImages,
 } from "./../../actions";
 import "./Order.css";
@@ -21,6 +21,7 @@ import AddToCartModal from "./AddToCartModal";
 import { ClassicPrintsData } from "../ProductList/ClassicPrintsData";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { toast } from "react-toastify";
 
 function Order(props) {
   const dispatch = useDispatch();
@@ -46,12 +47,22 @@ function Order(props) {
     uploads = Object.values(uploads[0]);
 
     uploads.map((el) => {
-      return newImages.unshift({
-        imgSrc: URL.createObjectURL(el),
-        img: el,
-        id: uuidv4(),
-        count: 1,
-      });
+      if (
+        el.name.includes(".jpg") ||
+        el.name.includes(".jpeg") ||
+        el.name.includes(".png")
+        // || el.name.includes(".heic")
+      ) {
+        newImages.unshift({
+          imgSrc: URL.createObjectURL(el),
+          img: el,
+          id: uuidv4(),
+          count: 1,
+        });
+      } else {
+        toast.info("1 file format not supported");
+      }
+      return newImages;
     });
     dispatch(updateImages(newImages));
   };
@@ -87,7 +98,7 @@ function Order(props) {
   };
 
   const handleModalButton = () => {
-    addToCart();
+    handleAddToCart();
     setModalShow(true);
   };
 
@@ -96,7 +107,7 @@ function Order(props) {
     dispatch(updateSelectedSize(newSize));
   };
 
-  const addToCart = () => {
+  const handleAddToCart = () => {
     let quantity = imagesCount;
     let price = selectedSize[1] * quantity;
     let newCart = [...cart];
@@ -112,10 +123,10 @@ function Order(props) {
     dispatch(updateCart(newCart));
   };
 
-  const checkoutClick = () => {
+  const handleCheckoutClick = () => {
     dispatch(clearImages());
   };
-  const goToCart = () => {
+  const handleGoToCart = () => {
     dispatch(clearImages());
   };
 
@@ -130,11 +141,10 @@ function Order(props) {
     checkImagesQuantity();
   }, [images]);
 
-  const deleteCartItem = (id) => {
+  const handleDeleteCartItem = (id) => {
     const filteredCart = cart.filter((cartItem) => {
       return cartItem.id !== id;
     });
-    console.log("clicked");
 
     dispatch(updateCart(filteredCart));
   };
@@ -164,11 +174,11 @@ function Order(props) {
             </DropdownButton>
 
             <AddToCartModal
-              deletecartitem={(id) => deleteCartItem(id)}
+              deleteCartItem={(id) => handleDeleteCartItem(id)}
               items={cart}
-              handleAddToCart={addToCart}
-              handleGoToCart={goToCart}
-              handleCheckoutClick={checkoutClick}
+              addToCart={handleAddToCart}
+              handleGoToCart={handleGoToCart}
+              checkoutClick={handleCheckoutClick}
               show={modalShow}
               onHide={() => setModalShow(false)}
             />

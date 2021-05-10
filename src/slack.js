@@ -1,17 +1,3 @@
-// import firebase from "firebase/app";
-// import "firebase/auth";
-// import "firebase/firestore";
-// import "firebase/storage";
-
-// const slackApp = {
-//   appId: "A020NFGAG6L",
-//   dateOfCreation: "April 25, 2021",
-//   clientId: "1991940927142.2022526356224",
-//   clientSecret: "c873b5e4faf875f05fc4d2f4fb6a5387",
-//   signingSecret: "e7080dd214361911a3ba8dee5a983182",
-//   verificationToken: "xlUZD3Z8A7bcQoDQ0U41hBzs",
-// };
-
 // Require the Node Slack SDK package (github.com/slackapi/node-slack-sdk)
 const { WebClient, LogLevel } = require("@slack/web-api");
 
@@ -30,8 +16,4 @@ try {
     channel: channelId,
     text: "Hello world",
   });
-
-  console.log(result);
-} catch (error) {
-  console.error(error);
-}
+} catch (error) {}

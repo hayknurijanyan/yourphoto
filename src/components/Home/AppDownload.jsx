@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./AppDownload.css";
 import "./@Shared.css";
 import appImg from "../../imgs/app-download/app.png";

@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { signIn } from "../../actions";
 import { db } from "../../firebase";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const SignUp = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup, currentUser } = useAuth();
+  const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -40,7 +41,7 @@ const SignUp = () => {
           displayName: nameRef.current.value,
         })
         .catch(function (error) {
-          console.log(error);
+          toast.error("Woops! somthing went wrong");
         });
 
       db.collection("users").doc(response.user.uid).set({

@@ -1,7 +1,7 @@
 #products {
   padding: 50px;
   height: 890px;
-  background-color: var(--lightBackground);
+  background-color: rgb(243, 243, 243);
 }
 
 .products-header {

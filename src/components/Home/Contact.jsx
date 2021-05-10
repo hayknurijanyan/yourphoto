@@ -9,6 +9,7 @@ const Contact = () => {
       <div className="contact-container">
         <div className="contact-map">
           <iframe
+            title="iframeMap1"
             src="https://maps.google.com/maps?q=yerevan&t=&z=13&ie=UTF8&iwloc=&output=embed"
             frameBorder="0"
             style={{ border: 0 }}

@@ -177,7 +177,7 @@ function Order(props) {
               deleteCartItem={(id) => handleDeleteCartItem(id)}
               items={cart}
               addToCart={handleAddToCart}
-              handleGoToCart={handleGoToCart}
+              goToCart={handleGoToCart}
               checkoutClick={handleCheckoutClick}
               show={modalShow}
               onHide={() => setModalShow(false)}

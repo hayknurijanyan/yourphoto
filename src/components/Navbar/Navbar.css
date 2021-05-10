@@ -107,7 +107,6 @@
   font-size: 17px;
   font-weight: 400;
   cursor: pointer;
-  padding-left: 0;
 }
 .mobile-nav-links {
   color: var(--dark);
@@ -117,7 +116,6 @@
   font-size: 17px;
   font-weight: 400;
   cursor: pointer;
-  padding-left: 0;
 }
 
 /* .nav-links:hover {
@@ -220,6 +218,7 @@
     align-items: center;
     margin-right: 4px;
     margin-bottom: 0;
+    padding-left: 0;
   }
 
   .open {
@@ -231,6 +230,7 @@
     height: fit-content;
     width: 100%;
     overflow: hidden;
+    padding-left: 0;
 
     -webkit-transition: 350ms;
     -moz-transition: 350ms;

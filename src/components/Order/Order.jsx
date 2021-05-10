@@ -151,7 +151,7 @@ function Order(props) {
 
   if (images.length > 0) {
     return (
-      <main id="main">
+      <main id="order-main">
         <header>
           <div className="left-buttons">
             <Button variant="primary" onClick={handleInputClick}>

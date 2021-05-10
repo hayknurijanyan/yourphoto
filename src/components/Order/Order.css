@@ -15,7 +15,12 @@
   scroll-margin: 76px;
 }
 
-#main {
+.container-div {
+  margin: 0;
+  padding: 0;
+}
+
+#order-main {
   /* padding-top:32px; */
   margin-top: 76px;
   margin-bottom: 70px;
@@ -25,7 +30,7 @@
   /* background-color: var(--lightBackground); */
 }
 
-#main header {
+#order-main header {
   /* background-color: var(--dark); */
   margin-top: 100px;
   margin-bottom: 10px;
@@ -123,14 +128,14 @@
 }
 
 @media only screen and (max-width: 830px) {
-  #main {
+  #order-main {
     /* padding-top:32px; */
     margin-top: 0px;
     margin-bottom: 50px;
     padding: 8px;
     /* background-color: var(--lightBackground); */
   }
-  #main header {
+  #order-main header {
     margin-top: 90px;
     height: 50px;
     /* padding-top:32px; */

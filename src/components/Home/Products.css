@@ -1,3 +1,8 @@
+.container-div {
+  margin: 0;
+  padding: 0;
+}
+
 #products {
   padding: 50px;
   height: 890px;

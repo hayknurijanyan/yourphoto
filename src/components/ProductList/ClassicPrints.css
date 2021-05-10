@@ -1,42 +1,27 @@
 #classic-prints {
-  display: -ms-grid;
   display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   grid-gap: 20px;
-  -ms-grid-columns: (minmax(230px, auto))[4];
-      grid-template-columns: repeat(4, minmax(230px, auto));
-  -ms-grid-rows: (minmax(230px, auto))[2];
-      grid-template-rows: repeat(2, minmax(230px, auto));
+  grid-template-columns: repeat(4, minmax(230px, auto));
+  grid-template-rows: repeat(2, minmax(230px, auto));
+  /* grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr); */
   margin-bottom: 50px;
 }
 
 .box-details {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 100%;
   height: 100%;
 }
 
 .box-detail-item {
   background-color: rgba(63, 63, 63, 0.5);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
   height: 20%;
   width: 100%;
   font-size: 17px;
@@ -49,15 +34,10 @@
   background-size: cover;
   border-radius: 4px;
   text-decoration: none !important;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
 }
-
 .box1:hover {
-  -webkit-transform: scale(1.07);
-          transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .box2 {
@@ -66,32 +46,21 @@
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none !important;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
 }
-
 .box2:hover {
-  -webkit-transform: scale(1.07);
-          transform: scale(1.07);
+  transform: scale(1.07);
 }
-
 .box3 {
   background: url(../../imgs/photos/standard.JPG);
   background-size: cover;
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none !important;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
 }
-
 .box3:hover {
-  -webkit-transform: scale(1.07);
-          transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .box4 {
@@ -100,15 +69,11 @@
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none !important;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
 }
 
 .box4:hover {
-  -webkit-transform: scale(1.07);
-          transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .box5 {
@@ -117,32 +82,22 @@
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none !important;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
 }
 
 .box5:hover {
-  -webkit-transform: scale(1.07);
-          transform: scale(1.07);
+  transform: scale(1.07);
 }
-
 .box6 {
   background: url(../../imgs/photos/letter.JPG);
   background-size: cover;
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none !important;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
 }
-
 .box6:hover {
-  -webkit-transform: scale(1.07);
-          transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 .box7 {
@@ -151,46 +106,32 @@
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none !important;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
 }
-
 .box7:hover {
-  -webkit-transform: scale(1.07);
-          transform: scale(1.07);
+  transform: scale(1.07);
 }
-
 .box8 {
   background: url(../../imgs/photos/A3.JPG);
   background-size: cover;
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none !important;
-  -webkit-transition: -webkit-transform 0.4s;
-  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
 }
 
 .box8:hover {
-  -webkit-transform: scale(1.07);
-          transform: scale(1.07);
+  transform: scale(1.07);
 }
 
 @media only screen and (max-width: 1200px) {
   #classic-prints {
     /* margin: 80px 20px; */
-    display: -ms-grid;
+    grid-gap: 20px;
     display: grid;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-grid-columns: (minmax(180px, auto))[4];
-        grid-template-columns: repeat(4, minmax(180px, auto));
-    -ms-grid-rows: (minmax(180px, auto))[2];
-        grid-template-rows: repeat(2, minmax(180px, auto));
+    justify-content: center;
+    grid-template-columns: repeat(4, minmax(180px, auto));
+    grid-template-rows: repeat(2, minmax(180px, auto));
   }
   .box-detail-item {
     font-size: 15px;
@@ -200,36 +141,26 @@
 @media only screen and (max-width: 800px) {
   #classic-prints {
     padding: 10px;
-    display: -ms-grid;
+    grid-gap: 20px;
     display: grid;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-grid-columns: (minmax(120px, auto))[4];
-        grid-template-columns: repeat(4, minmax(120px, auto));
-    -ms-grid-rows: (minmax(120px, auto))[2];
-        grid-template-rows: repeat(2, minmax(120px, auto));
+    justify-content: center;
+    grid-template-columns: repeat(4, minmax(120px, auto));
+    grid-template-rows: repeat(2, minmax(120px, auto));
   }
   .box-detail-item {
     font-size: 10px;
   }
 }
-
 @media only screen and (max-width: 600px) {
   #classic-prints {
     padding: 10px;
-    display: -ms-grid;
+    grid-gap: 20px;
     display: grid;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-grid-columns: (minmax(140px, auto))[2];
-        grid-template-columns: repeat(2, minmax(140px, auto));
-    -ms-grid-rows: (minmax(140px, auto))[4];
-        grid-template-rows: repeat(4, minmax(140px, auto));
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(140px, auto));
+    grid-template-rows: repeat(4, minmax(140px, auto));
   }
   .box-detail-item {
     font-size: 14px;
   }
 }
-/*# sourceMappingURL=ClassicPrints.css.map */

@@ -152,7 +152,7 @@ ${downloadUrl}`;
                     await axios.post(webhookUrl, data);
                   } catch {
                     toast.error(
-                      `ERROR: ${folderId}, Whoops! looks like something went wrong, for checking your order status please make a screenshot and call to 077540454`,
+                      `ERROR: ${folderId}, Whoops! looks like something went wrong, for checking your order status please take a screenshot and call to 077540454`,
                       {
                         position: "top-right",
                         autoClose: 30000,

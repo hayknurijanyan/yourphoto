@@ -26,7 +26,8 @@ const Checkout = (props) => {
   let [cartImagesCount, setCartImagesCount] = useState(0);
   const [modalShow, setModalShow] = useState(false);
 
-  const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
+  const phoneRegExp =
+    /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
   const handleCloseError = () => setShowErrorModal(false);
   const handleShowError = () => setShowErrorModal(true);
@@ -93,7 +94,7 @@ const Checkout = (props) => {
         let day = date.getDate();
         let hours = date.getHours();
         let minutes = date.getMinutes();
-        let newDate = `${year}-${month}-${day}-${hours}:${minutes}`;
+        let newDate = `${year}-${month}-${day}-${hours}_${minutes}`;
 
         setProgress(0);
 
@@ -118,7 +119,7 @@ const Checkout = (props) => {
               if (sum === cartImagesCount) {
                 try {
                   let browserUrl =
-                    "https://console.firebase.google.com/u/0/project/yourphoto-app/storage/yourphoto-app.appspot.com/files~2Forders~";
+                    "https://console.firebase.google.com/u/0/project/yourphoto-app/storage/yourphoto-app.appspot.com/files/~2Forders~";
                   let url = await storageRef.child(
                     `order/${newDate}-${folderId}`
                   ).name;

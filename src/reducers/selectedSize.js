@@ -1,4 +1,4 @@
-const initialState = ["10 x 15", 100, "Glossy"];
+const initialState = ["10 x 15", 70, "Glossy"];
 
 const selectedSizeReducer = (state = initialState, action) => {
   const selectedSize = action.payload;

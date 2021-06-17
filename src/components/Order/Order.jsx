@@ -49,7 +49,10 @@ function Order(props) {
     uploads.map((el) => {
       if (
         el.name.includes(".jpg") ||
+        el.name.includes(".JPG") ||
+        el.name.includes(".JPEG") ||
         el.name.includes(".jpeg") ||
+        el.name.includes(".PNG") ||
         el.name.includes(".png")
         // || el.name.includes(".heic")
       ) {
@@ -60,7 +63,7 @@ function Order(props) {
           count: 1,
         });
       } else {
-        toast.info("1 file format not supported");
+        toast.info(`"${el.name}" file format not supported`);
       }
       return newImages;
     });
